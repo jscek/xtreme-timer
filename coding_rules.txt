@@ -1,0 +1,9 @@
+wcięcia - tabulator, (4 spacje)
+otwarcie klamry w tej samej linii, spacja po nazwie, linia wolna po deklaracji
+spacja po przecinku przy kolejnych argumentach funkcji
+nazwy angielskie camelCase 
+klasy w osobnych plikach
+JavaDoc dla każdej deklaracji klasy 
+spacja po słowach kluczowych: if, while, do, for
+spacje przy operatorach artmetycznych i logicznych
+ograniczenie długości linii
