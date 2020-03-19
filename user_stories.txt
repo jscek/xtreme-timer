@@ -1,0 +1,10 @@
+1. Możliwość zapisania rozpoczęcia i zakończenia czasu pracy oraz wpisanie nazwy projektu, na który jest logowany czas. - 8 h
+2. Stoper powinien się  uruchamiać wraz ze startem systemu. Aplikacja jest od razu uruchomiona i gotowa do użycia. - 5 h
+3. Zapamiętywanie nazw projektów, nad którymi pracował użytkownik. Następnie przy wpisywaniu pojawia się podpowiedź tego projektu. - 8 h
+4. Możliwość założenia limitu czasu pracy na dany projekt w danym dniu. Wyświetlanie powiadomień w przypadku przekroczenia limitu. - 10 h
+5. Generowanie raportów z sumarycznym czasem pracy nad danym projektem w podanych ramach czasowych. - 12 h
+6. Możliwość wysłania raportu mailem. Raport powinien zawierać informację o projektach i ilości spędzonego czasu. - 15 h
+7. Aplikacja powinna wyświetlać na pasku powiadomień ikonkę informująca o stanie stopera (włączony/wyłączony). - 9 h
+8. Synchronizacja aplikacji z kalendarzem Google - powiadomienia o zbliżających się wydarzeniach (pobieranych z kalendarza) - 15 h
+9. Możliwość logowania czasu na jeden projekt przez wielu użytkowników. Istnieje serwer, użytkownicy korzystają w tym samym czasie - 35 h
+10. Aplikacja powinna monitorować aktywność użytkownika i zapisywać czas, który jest w rzeczywistości poświęcony pracy nad danym projektem. - 18 h
