@@ -18,7 +18,6 @@ public class BitCounter {
                 .count();
     }
 
-
     private String getBinaryRepresentationString(String[] numbers) {
         StringBuilder binaryString = new StringBuilder();
         for (String number : numbers) {
@@ -28,11 +27,18 @@ public class BitCounter {
     }
 
     private String getBinaryRepresentationString(String number) {
-        int value = Integer.parseInt(number);
+        int value = parseStringToInt(number);
         if (value < 0 || value >= 255) {
             throw new RuntimeException("Parameter value should be lower higher than 0 and smaller than 255");
         }
         return Integer.toBinaryString(value);
+    }
+
+    private int parseStringToInt(String number) {
+        if (number.startsWith("$")) {
+            return Integer.parseInt(number.substring(1), 16);
+        }
+        return Integer.parseInt(number);
     }
 
     private boolean hasMultipleNumbers(String numbers) {

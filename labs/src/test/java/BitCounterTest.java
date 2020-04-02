@@ -63,4 +63,12 @@ class BitCounterTest {
         assertThrows(NumberFormatException.class, () -> bitCounter.noOfBits1("3:3:2:4"));
     }
 
+    @Test
+    void noOfBits1HexNumbersTest() {
+        assertThat(bitCounter.noOfBits1("3 $a4"))
+                .isEqualTo(5);
+        assertThat(bitCounter.noOfBits1("$aa\n$a4"))
+                .isEqualTo(7);
+    }
+
 }
