@@ -40,4 +40,20 @@ class BitCounterTest {
         assertThat(generator.noOfBits1("3;5"))
                 .isEqualTo(4);
     }
+
+    @Test
+    void noOfBits1SpaceAndSemicolonDelimitersTest() {
+        assertThat(generator.noOfBits1("3;5  8"))
+                .isEqualTo(5);
+    }
+
+    @Test
+    void noOfBits1WhiteSpacesDelimitersTest() {
+        assertThat(generator.noOfBits1("3 5     8"))
+                .isEqualTo(5);
+
+        assertThat(generator.noOfBits1("3;5\n8"))
+                .isEqualTo(5);
+    }
+
 }

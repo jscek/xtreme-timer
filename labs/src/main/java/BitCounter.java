@@ -1,5 +1,6 @@
 
 public class BitCounter {
+    private final String delimitersRegex = "(\\s+|;)";
 
     public int noOfBits1(String numbers) {
         if (numbers.isEmpty()) {
@@ -7,11 +8,10 @@ public class BitCounter {
         }
         String binaryString;
         if (hasMultipleNumbers(numbers)) {
-            binaryString = getBinaryRepresentationString(numbers.split(";"));
+            binaryString = getBinaryRepresentationString(numbers.split(delimitersRegex));
         } else {
             binaryString = getBinaryRepresentationString(numbers);
         }
-
         return (int) binaryString
                 .chars()
                 .filter(c -> c == (int) '1')
@@ -36,6 +36,6 @@ public class BitCounter {
     }
 
     private boolean hasMultipleNumbers(String numbers) {
-        return numbers.contains(";");
+        return numbers.matches(".*" + delimitersRegex +".*");
     }
 }
