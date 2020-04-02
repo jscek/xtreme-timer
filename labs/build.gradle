@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+}
+
+group 'xp'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.6.1'
+    testCompile "org.assertj:assertj-core:3.11.1"
+
+}
