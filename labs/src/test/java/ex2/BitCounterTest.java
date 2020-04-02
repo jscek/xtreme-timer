@@ -1,6 +1,5 @@
 package ex2;
 
-import ex2.BitCounter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -58,6 +57,9 @@ class BitCounterTest {
                 .isEqualTo(5);
 
         assertThat(bitCounter.noOfBits1("3;5\n8"))
+                .isEqualTo(5);
+
+        assertThat(bitCounter.noOfBits1("3; 5\n8"))
                 .isEqualTo(5);
     }
 

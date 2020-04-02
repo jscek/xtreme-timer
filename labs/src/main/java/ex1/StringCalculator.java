@@ -59,6 +59,9 @@ public class StringCalculator {
         if (numbersString.matches("^//.*\n.*")) {
             Scanner sc = new Scanner(numbersString);
             delimiter = sc.nextLine().substring(2);
+            if (delimiter.length() > 1) {
+                delimiter = delimiter.substring(1, delimiter.length() -1);
+            }
             numbersString = sc.nextLine();
         }
         return numbersString.split(delimiter);

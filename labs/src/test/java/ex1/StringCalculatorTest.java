@@ -40,6 +40,11 @@ class StringCalculatorTest {
     }
 
     @Test
+    void addWithCustomDelimitersTest() {
+        assertEquals(14, calculator.add("//[;;]\n7;;4;;3"));
+    }
+
+    @Test
     void addNegativeNumberTest() {
         Exception exception = assertThrows(NegativesNotAllowedException.class, () -> calculator.add("-3,3"));
         assertEquals("Negatives not allowed: -3", exception.getMessage());

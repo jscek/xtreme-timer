@@ -1,7 +1,7 @@
 package ex2;
 
 public class BitCounter {
-    private final String delimitersRegex = "(\\s+|;)";
+    private final String delimitersRegex = "(\\s+|\\s*;\\s*)";
 
     public int noOfBits1(String numbers) {
         if (numbers.isEmpty()) {
