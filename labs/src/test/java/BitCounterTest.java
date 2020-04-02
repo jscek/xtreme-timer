@@ -35,4 +35,9 @@ class BitCounterTest {
         assertThrows(RuntimeException.class, () -> generator.noOfBits1("-5"));
     }
 
+    @Test
+    void noOfBits1MultipleNumbersTest() {
+        assertThat(generator.noOfBits1("3;5"))
+                .isEqualTo(4);
+    }
 }
