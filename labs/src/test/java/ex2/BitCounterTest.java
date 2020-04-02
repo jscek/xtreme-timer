@@ -1,3 +1,6 @@
+package ex2;
+
+import ex2.BitCounter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

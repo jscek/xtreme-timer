@@ -1,3 +1,4 @@
+package ex2;
 
 public class BitCounter {
     private final String delimitersRegex = "(\\s+|;)";
