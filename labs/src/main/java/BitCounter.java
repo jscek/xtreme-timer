@@ -12,10 +12,7 @@ public class BitCounter {
         } else {
             binaryString = getBinaryRepresentationString(numbers);
         }
-        return (int) binaryString
-                .chars()
-                .filter(c -> c == (int) '1')
-                .count();
+        return getCountOfBits1(binaryString);
     }
 
     private String getBinaryRepresentationString(String[] numbers) {
@@ -43,5 +40,12 @@ public class BitCounter {
 
     private boolean hasMultipleNumbers(String numbers) {
         return numbers.matches(".*" + delimitersRegex +".*");
+    }
+
+    private int getCountOfBits1(String binaryString) {
+        return (int) binaryString
+                .chars()
+                .filter(c -> c == (int) '1')
+                .count();
     }
 }
