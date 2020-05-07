@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
+import java.time.Duration;
 
 public class TimerApp {
 	private List<TimerRecord> timerRecordList;
@@ -49,7 +50,7 @@ public class TimerApp {
 				resumeTimer(Long.parseLong(input[1]));
 				break;
 			case "addlimit":
-				addLimit(Long.parseLong(input[1]));
+				addLimit(Long.parseLong(input[1]), Duration.ofSeconds(Long.parseLong(input[2])));
 				break;
 			case "save":
 				saveTimerRecords(input[1]);
@@ -108,9 +109,9 @@ public class TimerApp {
 		timer.ifPresent(TimerRecord::resume);
 	}
 
-	public void addLimit(long id) {
+	public void addLimit(long id, Duration limit) {
 		Optional<TimerRecord> timer = getTimerById(id);
-
+		System.out.print(limit.getSeconds());
 	}
 
 	public void saveTimerRecords(String filename) {
