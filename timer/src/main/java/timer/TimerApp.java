@@ -48,6 +48,9 @@ public class TimerApp {
 			case "resume":
 				resumeTimer(Long.parseLong(input[1]));
 				break;
+			case "addlimit":
+				addLimit(Long.parseLong(input[1]));
+				break;
 			case "save":
 				saveTimerRecords(input[1]);
 				break;
@@ -103,6 +106,11 @@ public class TimerApp {
 	public void resumeTimer(long id) {
 		Optional<TimerRecord> timer = getTimerById(id);
 		timer.ifPresent(TimerRecord::resume);
+	}
+
+	public void addLimit(long id) {
+		Optional<TimerRecord> timer = getTimerById(id);
+
 	}
 
 	public void saveTimerRecords(String filename) {

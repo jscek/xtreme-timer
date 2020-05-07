@@ -10,6 +10,7 @@ public class TimerRecord {
 	private Instant stopTime;
 	private boolean isRunning = false;
 	private Duration duration;
+	private Duration limit;
 
 	public TimerRecord(Long id) {
 		this(id, "--");
