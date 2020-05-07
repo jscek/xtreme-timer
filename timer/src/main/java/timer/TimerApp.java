@@ -1,15 +1,13 @@
 package timer;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Scanner;
+import java.util.*;
 
 public class TimerApp {
 	private List<TimerRecord> timerRecordList;
 	private TimerGUI timerGUI;
 	private TimerSaver saver;
+	private TimerReader reader;
 	private Scanner scanner;
 	private boolean shouldFinish;
 
@@ -17,6 +15,7 @@ public class TimerApp {
 		timerRecordList = new ArrayList<>();
 		timerGUI = new TimerGUI();
 		saver = new TimerSaver();
+		reader = new TimerReader();
 		scanner = new Scanner(System.in);
 		shouldFinish = false;
 	}
@@ -50,6 +49,9 @@ public class TimerApp {
 				break;
 			case "save":
 				saveTimerRecords(input[1]);
+				break;
+			case "read":
+				readTimerRecords(input[1]);
 				break;
 			case "quit":
 				shouldFinish = true;
@@ -111,6 +113,10 @@ public class TimerApp {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void readTimerRecords(String filename) {
+		timerRecordList = reader.readFromFile(filename);
 	}
 
 	private void clearConsole() {
