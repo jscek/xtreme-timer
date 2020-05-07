@@ -50,7 +50,6 @@ public class TimerApp {
 				break;
 			case "save":
 				saveTimerRecords(input[1]);
-				break;
 			case "quit":
 				shouldFinish = true;
 				break;
