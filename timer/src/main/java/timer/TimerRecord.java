@@ -20,6 +20,8 @@ public class TimerRecord {
 
 	private Duration duration;
 
+	private String name = "";
+
 	public Instant getStartTime() {
 		return startTime;
 	}
@@ -67,5 +69,9 @@ public class TimerRecord {
 	public void startTimer() {
 		startTime = Instant.now();
 		this.isRunning = true;
+	}
+
+	public String getName() {
+		return name;
 	}
 }
