@@ -50,7 +50,5 @@ public class TimerRecordTest {
 		Duration duration2 = timerRecord.getDuration();
 
 		assertThat(duration2.minus(duration1).toMillis()).isGreaterThan(0);
-
-
 	}
 }
