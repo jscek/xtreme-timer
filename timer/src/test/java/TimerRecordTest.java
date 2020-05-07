@@ -11,12 +11,10 @@ public class TimerRecordTest {
 
 	@Test
 	public void startTimer() {
-
 		TimerRecord timerRecord = new TimerRecord(1L);
 		timerRecord.startTimer();
 		assertThat(timerRecord.getStartTime()).isNotNull();
 		assertThat(timerRecord.getId()).isEqualTo(1L);
-
 	}
 
 	@Test
@@ -50,7 +48,5 @@ public class TimerRecordTest {
 		Duration duration2 = timerRecord.getDuration();
 
 		assertThat(duration2.minus(duration1).toMillis()).isGreaterThan(0);
-
-
 	}
 }
