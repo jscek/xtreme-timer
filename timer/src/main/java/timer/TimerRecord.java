@@ -4,21 +4,21 @@ import java.time.Duration;
 import java.time.Instant;
 
 public class TimerRecord {
+	private Long id;
+	private String projectName;
+	private Instant startTime;
+	private Instant stopTime;
+	private boolean isRunning = false;
+	private Duration duration;
 
 	public TimerRecord(Long id) {
-		this.id = id;
-
+		this(id, "--");
 	}
 
-	private Instant startTime;
-
-	private Long id;
-
-	private Instant stopTime;
-
-	private boolean isRunning = false;
-
-	private Duration duration;
+	public TimerRecord(Long id, String projectName) {
+		this.id = id;
+		this.projectName = projectName;
+	}
 
 	public Instant getStartTime() {
 		return startTime;
@@ -32,8 +32,6 @@ public class TimerRecord {
 		isRunning = false;
 		stopTime = Instant.now();
 		duration = getDuration();
-
-
 	}
 
 	public Instant getStopTime() {
@@ -67,5 +65,9 @@ public class TimerRecord {
 	public void startTimer() {
 		startTime = Instant.now();
 		this.isRunning = true;
+	}
+
+	public String getProjectName() {
+		return projectName;
 	}
 }

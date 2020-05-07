@@ -34,11 +34,10 @@ public class TimerApp {
 		}
 	}
 
-
 	private void performAction(String[] input) {
 		switch (input[0].toLowerCase()) {
 			case "create":
-				addTimer();
+				addTimer(input);
 				break;
 			case "start":
 				startTimer(Long.valueOf(input[1]));
@@ -69,6 +68,14 @@ public class TimerApp {
 
 	public void addTimer() {
 		timerRecordList.add(new TimerRecord(getUniqueId()));
+	}
+
+	public void addTimer(String[] input) {
+		if (input.length >= 2) {
+			timerRecordList.add(new TimerRecord(getUniqueId(), input[1]));
+		} else {
+			addTimer();
+		}
 	}
 
 	private Long getUniqueId() {

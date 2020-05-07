@@ -22,7 +22,7 @@ public class TimerSaver {
     }
 
     private String getRecordAsString(TimerRecord record) {
-        return record.getId() + "," + record.getStartTime() + "," +
-                record.getStopTime() + "," + record.getDuration().getSeconds() + "," + record.isRunning();
+        return record.getId() + ";" + record.getProjectName() + ";" + record.getStartTime() + ";" +
+                record.getStopTime() + ";" + record.getDuration().getSeconds() + ";" + record.isRunning() + "\n";
     }
 }
