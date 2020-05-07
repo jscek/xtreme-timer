@@ -1,12 +1,13 @@
 package timer;
 
-import java.time.Duration;
+import java.awt.*;
 import java.util.List;
 
 public class TimerGUI {
 
 
 	public void displayGUI(List<TimerRecord> timerRecordList) {
+		showNotification(NotifyMode.INFO,"Timer application","Application has started.");
 		System.out.println("//////////Timers///////////");
 		displayTimers(timerRecordList);
 		System.out.println("//////////Command///////////");
@@ -25,5 +26,38 @@ public class TimerGUI {
 
 	private String displayDuration(long duration) {
 		return String.format("%d:%02d:%02d", duration / 3600, (duration % 3600) / 60, (duration % 60));
+	}
+
+	public enum NotifyMode {
+		ERROR,
+		INFO,
+		WARNING
+	}
+
+	public void showNotification(NotifyMode mode, String title, String msg) {
+		try{
+			SystemTray tray = SystemTray.getSystemTray();
+			Image image = Toolkit.getDefaultToolkit().createImage("some-icon.png");
+
+			TrayIcon trayIcon = new TrayIcon(image, "Java AWT Tray Demo");
+			trayIcon.setImageAutoSize(true);
+			trayIcon.setToolTip("System tray icon demo");
+			tray.add(trayIcon);
+
+			switch (mode) {
+				case ERROR:
+					trayIcon.displayMessage(title, msg, TrayIcon.MessageType.ERROR);
+					break;
+				case INFO:
+					trayIcon.displayMessage(title, msg, TrayIcon.MessageType.INFO);
+					break;
+				case WARNING:
+					trayIcon.displayMessage(title, msg, TrayIcon.MessageType.WARNING);
+					break;
+			}
+
+		}catch(Exception ex){
+			System.err.print(ex);
+		}
 	}
 }
