@@ -1,5 +1,3 @@
-## 🕘 xtreme-timer 🕒
-[![Build Status](https://travis-ci.org/stvsh/xtreme-timer.svg?branch=develop)](https://travis-ci.org/stvsh/xtreme-timer)
+## XP
 
-
-Simple timer application
+Excersises for Extreme Programming course
