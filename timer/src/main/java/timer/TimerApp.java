@@ -4,13 +4,13 @@ import java.time.Instant;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Scanner;
+import java.util.*;
+import java.time.Duration;
 
 public class TimerApp {
 	private List<TimerRecord> timerRecordList;
+	private Map<TimerRecord, TimerTask> recordNotifactions;
+	private Timer scheduler;
 	private TimerGUI timerGUI;
 	private TimerSaver saver;
 	private TimerLoader loader;
@@ -20,6 +20,8 @@ public class TimerApp {
 
 	public TimerApp() {
 		timerRecordList = new ArrayList<>();
+		recordNotifactions = new HashMap<>();
+		scheduler = new Timer();
 		timerGUI = new TimerGUI();
 		saver = new TimerSaver();
 		loader = new TimerLoader();
@@ -54,6 +56,9 @@ public class TimerApp {
 				break;
 			case "resume":
 				resumeTimer(Long.parseLong(input[1]));
+				break;
+			case "setlimit":
+				setLimit(Long.parseLong(input[1]), Duration.ofSeconds(Long.parseLong(input[2])));
 				break;
 			case "save":
 				saveTimerRecords(input[1]);
@@ -106,8 +111,10 @@ public class TimerApp {
 	public void startTimer(Long id) {
 		Optional<TimerRecord> timer = getTimerById(id);
 
-		timer.ifPresent(TimerRecord::startTimer);
-
+		if (timer.isPresent()) {
+			timer.get().startTimer();
+			registerNotification(timer.get());
+		}
 	}
 
 	Optional<TimerRecord> getTimerById(Long id) {
@@ -117,15 +124,26 @@ public class TimerApp {
 
 	public void stopTimer(long id) {
 		Optional<TimerRecord> timer = getTimerById(id);
-		timer.ifPresent(TimerRecord::stopTimer);
 
+		if (timer.isPresent()) {
+			timer.get().stopTimer();
+			recordNotifactions.get(timer.get()).cancel();
+		}
 	}
 
 	public void resumeTimer(long id) {
 		Optional<TimerRecord> timer = getTimerById(id);
-		timer.ifPresent(TimerRecord::resume);
+		if (timer.isPresent()) {
+			timer.get().resume();
+			registerNotification(timer.get());
+		}
 	}
 
+	public void setLimit(long id, Duration limit) {
+		Optional<TimerRecord> timer = getTimerById(id);
+		timer.ifPresent(record -> record.setLimit(limit));
+	}
+	
 	public String createReport(Instant start, Instant stop) {
 		if (start == null)
 			start = Instant.parse("2018-11-30T18:35:24.00Z");
@@ -152,5 +170,21 @@ public class TimerApp {
 
 	private void clearConsole() {
 		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	}
+
+	private void registerNotification(TimerRecord timerRecord) {
+		long limit = timerRecord.getLimit().getSeconds();
+		Instant startTime = timerRecord.getStartTime();
+		Instant limitTime = startTime.plusSeconds(limit);
+
+		TimerTask task = new TimerTask() {
+			@Override
+			public void run() {
+				timerGUI.showNotification(TimerGUI.NotifyMode.WARNING, "Time limit", "Limit for " + timerRecord.getProjectName() + " has been exceeded.");
+			}
+		};
+
+		recordNotifactions.put(timerRecord, task);
+		scheduler.schedule(task, Date.from(limitTime));
 	}
 }
