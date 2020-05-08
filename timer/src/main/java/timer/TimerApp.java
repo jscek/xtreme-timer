@@ -148,11 +148,6 @@ public class TimerApp {
 		return filename;
 	}
 
-//	public String getPath() {
-//		String path = createReport(null,null);
-//		return path;
-//	}
-
 	public void saveTimerRecords(String filename) {
 		try {
 			saver.saveToFile(timerRecordList, filename);
