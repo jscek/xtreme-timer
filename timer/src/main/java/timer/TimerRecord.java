@@ -80,4 +80,15 @@ public class TimerRecord {
 	public String getProjectName() {
 		return projectName;
 	}
+
+	public void setLimit(Duration limit) {
+		this.limit = limit;
+	}
+
+	public Duration getLimit() {
+		if (limit == null) {
+			return Duration.ZERO;
+		}
+		return limit;
+	}
 }
