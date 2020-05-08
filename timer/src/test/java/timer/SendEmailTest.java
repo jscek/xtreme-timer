@@ -11,7 +11,7 @@ public class SendEmailTest {
     public void send() {
 
         org.junit.jupiter.api.Assertions.assertDoesNotThrow(
-                ()-> newMail.send("test@example.com", "test", "test", "C:\\Users\\domin\\OneDrive\\Pulpit\\test1.jpg")
+                ()-> newMail.send("test@example.com", "test", "test", "test1.jpg")
         );
         assertThat(true);
     }
