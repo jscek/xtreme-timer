@@ -1,20 +1,19 @@
 package timer;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-
 import org.junit.jupiter.api.Test;
-import timer.SendEmail;
 
 public class SendEmailTest {
+
+    private SendEmail newMail = new SendEmail();
 
     @Test
     public void send() {
 
-        SendEmail newMail = new SendEmail();
         org.junit.jupiter.api.Assertions.assertDoesNotThrow(
-                ()-> newMail.main(null)
+                ()-> newMail.send("test@example.com", "test", "test", "test1.jpg")
         );
+        assertThat(true);
     }
 
 }
