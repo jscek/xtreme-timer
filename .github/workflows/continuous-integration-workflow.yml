@@ -9,7 +9,7 @@ defaults:
 
 jobs:
   test:
-    name: Test - Units & Integrations
+    name: Build & Unit Tests
     runs-on: ubuntu-18.04
 
     steps:
@@ -22,3 +22,5 @@ jobs:
         run: mvn -B clean compile
       - name: Build
         run: mvn -B clean verify
+      - name: Package
+        run: mvn -B clean package -DskipTests
