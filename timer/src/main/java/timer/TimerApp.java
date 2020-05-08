@@ -1,5 +1,8 @@
 package timer;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +21,7 @@ public class TimerApp {
 		timerGUI = new TimerGUI();
 		saver = new TimerSaver();
 		scanner = new Scanner(System.in);
+		timerReport = new TimerReport();
 		shouldFinish = false;
 	}
 
@@ -104,6 +108,18 @@ public class TimerApp {
 		Optional<TimerRecord> timer = getTimerById(id);
 		timer.ifPresent(TimerRecord::resume);
 	}
+
+	public String createReport(Instant start, Instant stop){
+
+		if (start==null)
+			start = Instant.parse("2018-11-30T18:35:24.00Z");
+		if (stop==null)
+			stop = Instant.parse("9999-11-30T18:35:24.00Z");
+
+		String filename = "rep.csv";
+		timerReport.saveReport(filename,timerReport.createReportContent(start, stop, (ArrayList) timerRecordList));
+
+		return filename;
 
 	public void saveTimerRecords(String filename) {
 		try {
