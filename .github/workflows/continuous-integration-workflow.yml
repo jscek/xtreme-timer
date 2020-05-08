@@ -2,6 +2,11 @@ name: Java CI
 
 on: [push]
 
+defaults:
+  run:
+    shell: bash
+    working-directory: timer
+
 jobs:
   build:
     runs-on: ubuntu-latest
