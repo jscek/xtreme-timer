@@ -10,7 +10,7 @@ public class TimerGUI {
 		System.out.println("//////////Timers///////////");
 		displayTimers(timerRecordList);
 		System.out.println("//////////Command///////////");
-		System.out.println("Create\tStart {id}\tStop{id} \tResume{id} \tQuit \tRefresh");
+		System.out.println("Create\tStart {id}\tStop{id} \tResume{id} \tQuit \tRefresh \tReport");
 
 	}
 
