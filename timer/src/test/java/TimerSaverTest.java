@@ -1,17 +1,13 @@
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-import timer.TimerReader;
 import timer.TimerRecord;
 import timer.TimerSaver;
 
 import java.io.File;
 import java.io.IOException;
-import java.time.Duration;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
 
 public class TimerSaverTest {
 

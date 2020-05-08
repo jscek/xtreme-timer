@@ -7,7 +7,7 @@ public class TimerApp {
 	private List<TimerRecord> timerRecordList;
 	private TimerGUI timerGUI;
 	private TimerSaver saver;
-	private TimerReader reader;
+	private TimerLoader loader;
 	private Scanner scanner;
 	private boolean shouldFinish;
 
@@ -15,7 +15,7 @@ public class TimerApp {
 		timerRecordList = new ArrayList<>();
 		timerGUI = new TimerGUI();
 		saver = new TimerSaver();
-		reader = new TimerReader();
+		loader = new TimerLoader();
 		scanner = new Scanner(System.in);
 		shouldFinish = false;
 	}
@@ -116,7 +116,7 @@ public class TimerApp {
 	}
 
 	public void readTimerRecords(String filename) {
-		timerRecordList = reader.readFromFile(filename);
+		timerRecordList = loader.loadFromFile(filename);
 	}
 
 	private void clearConsole() {
