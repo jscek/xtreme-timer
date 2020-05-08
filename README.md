@@ -1,5 +1,5 @@
 ## 🕘 xtreme-timer 🕒
-[![Build Status](https://travis-ci.org/stvsh/xtreme-timer.svg?branch=develop)](https://travis-ci.org/stvsh/xtreme-timer)
+![](https://github.com/stvsh/xtreme-timer/workflows/Java%20CI/badge.svg)
 
 
 Simple timer application
