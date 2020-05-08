@@ -10,6 +10,7 @@ public class TimerRecord {
 	private Instant stopTime;
 	private boolean isRunning = false;
 	private Duration duration;
+	private Duration limit;
 
 	public TimerRecord(Long id) {
 		this(id, "--");
@@ -78,5 +79,16 @@ public class TimerRecord {
 
 	public String getProjectName() {
 		return projectName;
+	}
+
+	public void setLimit(Duration limit) {
+		this.limit = limit;
+	}
+
+	public Duration getLimit() {
+		if (limit == null) {
+			return Duration.ZERO;
+		}
+		return limit;
 	}
 }
