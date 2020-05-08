@@ -2,7 +2,6 @@ package timer;
 
 import java.time.Instant;
 import java.io.IOException;
-import java.util.*;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -73,7 +72,7 @@ public class TimerApp {
 					Instant start = date.atStartOfDay(ZoneId.of("Europe/Paris")).toInstant();
 					LocalDate date2 = LocalDate.parse(input[2]);
 					Instant stop = date2.atStartOfDay(ZoneId.of("Europe/Paris")).toInstant();
-					createReport(start,stop);
+					createReport(start, stop);
 				}
 				break;
 			case "refresh":
