@@ -6,18 +6,20 @@ import javax.mail.internet.*;
 import javax.activation.*;
 
 public class SendEmail {
-    public static void main(String[] args) {
+
+    public static void send(String to, String subject, String text, String path) {
 
         String host="smtp.wp.pl";
         final String user="extremetimerPE2020@wp.pl";
         final String password="PErules1";
 
-        String to="extremetimerPE2020@wp.pl";
+        if (to == null) {
+            to = "extremetimerPE2020@wp.pl";
+        }
 
-        String mailSubject="ExampleMail!";
-        String mailText="Hello everyone! \n Stay calm, it's only a test";
-        String attachmentSource="C:\\Users\\domin\\OneDrive\\Pulpit\\test1.jpg";
-        String attachmentName="test1.jpg";
+        String mailSubject=subject;
+        String mailText=text;
+        String attachmentSource=path;
 
         //Get the session object
         Properties props = new Properties();
@@ -27,11 +29,11 @@ public class SendEmail {
         props.put("mail.stmp.port", 465);
 
         Session session = Session.getDefaultInstance(props,
-            new javax.mail.Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(user,password);
-            }
-        });
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(user,password);
+                    }
+                });
 
         //Compose the message
         try {
@@ -47,7 +49,7 @@ public class SendEmail {
             MimeBodyPart attachmentBodyPart= new MimeBodyPart();
             DataSource source = new FileDataSource(attachmentSource);
             attachmentBodyPart.setDataHandler(new DataHandler(source));
-            attachmentBodyPart.setFileName(attachmentName);
+            attachmentBodyPart.setFileName(path);
 
             multipart.addBodyPart(textBodyPart);
             multipart.addBodyPart(attachmentBodyPart);
