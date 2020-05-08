@@ -20,6 +20,15 @@ public class TimerRecord {
 		this.projectName = projectName;
 	}
 
+	public TimerRecord(Long id, String projectName, Instant startTime, Instant stopTime, boolean isRunning, Duration duration) {
+		this.id = id;
+		this.projectName = projectName;
+		this.startTime = startTime;
+		this.stopTime = stopTime;
+		this.isRunning = isRunning;
+		this.duration = duration;
+	}
+
 	public Instant getStartTime() {
 		return startTime;
 	}

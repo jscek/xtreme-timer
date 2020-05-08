@@ -11,7 +11,7 @@ public class TimerGUI {
 		System.out.println("//////////Timers///////////");
 		displayTimers(timerRecordList);
 		System.out.println("//////////Command///////////");
-		System.out.println("Create {project}\t\tStart {id}\t\tStop {id}\t\tResume {id}\t\tSave {filename}\t\tRefresh\t\tReport {start} {stop}\t\tQuit");
+		System.out.println("Create {project}\t\tStart {id}\t\tStop {id}\t\tResume {id}\t\tSave {filename}\t\tRead {filename}\t\tReport {start} {stop}\t\tRefresh\t\tQuit");
 	}
 
 	public void displayTimers(List<TimerRecord> timerRecordList) {

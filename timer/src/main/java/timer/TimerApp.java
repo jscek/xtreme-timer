@@ -2,6 +2,7 @@ package timer;
 
 import java.time.Instant;
 import java.io.IOException;
+import java.util.*;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ public class TimerApp {
 	private List<TimerRecord> timerRecordList;
 	private TimerGUI timerGUI;
 	private TimerSaver saver;
+	private TimerLoader loader;
 	private Scanner scanner;
 	private boolean shouldFinish;
 	private TimerReport timerReport;
@@ -21,6 +23,7 @@ public class TimerApp {
 		timerRecordList = new ArrayList<>();
 		timerGUI = new TimerGUI();
 		saver = new TimerSaver();
+		loader = new TimerLoader();
 		scanner = new Scanner(System.in);
 		timerReport = new TimerReport();
 		shouldFinish = false;
@@ -55,6 +58,9 @@ public class TimerApp {
 				break;
 			case "save":
 				saveTimerRecords(input[1]);
+				break;
+			case "read":
+				loadTimerRecords(input[1]);
 				break;
 			case "quit":
 				shouldFinish = true;
@@ -139,6 +145,10 @@ public class TimerApp {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void loadTimerRecords(String filename) {
+		timerRecordList = loader.loadFromFile(filename);
 	}
 
 	private void clearConsole() {
