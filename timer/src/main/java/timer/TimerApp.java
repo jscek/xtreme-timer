@@ -80,6 +80,16 @@ public class TimerApp {
 					createReport(start, stop);
 				}
 				break;
+			case "sendemail":
+				if (input.length == 1) {
+					SendEmail.send("extremetimerPE2020@wp.pl", "Test3", "This is the report", createReport(null, null));
+				} else if (input.length == 4) {
+					SendEmail.send(input[1], input[2], input[3], createReport(null, null));
+				}
+				else {
+					System.out.println("Wrong parameters provided");
+				}
+				break;
 			case "refresh":
 				break;
 		}
