@@ -1,6 +1,9 @@
 package timer;
 
+import java.time.Instant;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -11,14 +14,18 @@ public class TimerApp {
 	private List<TimerRecord> timerRecordList;
 	private TimerGUI timerGUI;
 	private TimerSaver saver;
+	private TimerLoader loader;
 	private Scanner scanner;
 	private boolean shouldFinish;
+	private TimerReport timerReport;
 
 	public TimerApp() {
 		timerRecordList = new ArrayList<>();
 		timerGUI = new TimerGUI();
 		saver = new TimerSaver();
+		loader = new TimerLoader();
 		scanner = new Scanner(System.in);
+		timerReport = new TimerReport();
 		shouldFinish = false;
 	}
 
@@ -55,8 +62,22 @@ public class TimerApp {
 			case "save":
 				saveTimerRecords(input[1]);
 				break;
+			case "read":
+				loadTimerRecords(input[1]);
+				break;
 			case "quit":
 				shouldFinish = true;
+				break;
+			case "report":
+				if (input.length == 1) {
+					createReport(null,null);
+				} else {
+					LocalDate date = LocalDate.parse(input[1]);
+					Instant start = date.atStartOfDay(ZoneId.of("Europe/Paris")).toInstant();
+					LocalDate date2 = LocalDate.parse(input[2]);
+					Instant stop = date2.atStartOfDay(ZoneId.of("Europe/Paris")).toInstant();
+					createReport(start, stop);
+				}
 				break;
 			case "refresh":
 				break;
@@ -113,6 +134,18 @@ public class TimerApp {
 		Optional<TimerRecord> timer = getTimerById(id);
 		System.out.print(limit.getSeconds());
 	}
+	
+	public String createReport(Instant start, Instant stop) {
+		if (start == null)
+			start = Instant.parse("2018-11-30T18:35:24.00Z");
+		if (stop == null)
+			stop = Instant.parse("9999-11-30T18:35:24.00Z");
+
+		String filename = "rep.csv";
+		timerReport.saveReport(filename, timerReport.createReportContent(start, stop, (ArrayList) timerRecordList));
+
+		return filename;
+	}
 
 	public void saveTimerRecords(String filename) {
 		try {
@@ -120,6 +153,10 @@ public class TimerApp {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void loadTimerRecords(String filename) {
+		timerRecordList = loader.loadFromFile(filename);
 	}
 
 	private void clearConsole() {
