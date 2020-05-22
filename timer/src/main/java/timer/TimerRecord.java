@@ -4,8 +4,8 @@ import java.time.Duration;
 import java.time.Instant;
 
 public class TimerRecord {
-    private Long id;
-    private String projectName;
+    private final Long id;
+    private final String projectName;
     private Instant startTime;
     private Instant stopTime;
     private boolean isRunning = false;
@@ -94,15 +94,23 @@ public class TimerRecord {
     public String getProjectName() {
         return projectName;
     }
-    
-    public void setLimit(Duration limit) {
-		  this.limit = limit;
-	  }
 
-	  public Duration getLimit() {
-		  if (limit == null) {
-			  return Duration.ZERO;
-		  }
-		  return limit;
-	  }
+    public Duration getLimit() {
+        if (limit == null) {
+            return Duration.ZERO;
+        }
+        return limit;
+    }
+
+    public void setLimit(Duration limit) {
+        this.limit = limit;
+    }
+
+    public boolean isBetween(Instant start, Instant stop) {
+        if (this.startTime == null)
+            return false;
+
+        return this.startTime.compareTo(start) > 0
+                && (this.stopTime == null || this.stopTime.compareTo(stop) < 0);
+    }
 }

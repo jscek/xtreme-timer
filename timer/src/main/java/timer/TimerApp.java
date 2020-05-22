@@ -13,19 +13,20 @@ import timer.notification.NotificationGUIInterface;
 
 public class TimerApp {
 	private List<TimerRecord> timerRecordList;
-	private Map<TimerRecord, TimerTask> recordNotifactions;
-	private Timer scheduler;
-	private TimerGUI timerGUI;
-	private TimerSaver saver;
-	private TimerLoader loader;
-	private Scanner scanner;
 	private boolean shouldFinish;
-	private TimerReport timerReport;
-	private NotificationGUIInterface notificationGUI;
+
+	private final Map<TimerRecord, TimerTask> recordNotifications;
+	private final Timer scheduler;
+	private final TimerGUI timerGUI;
+	private final TimerSaver saver;
+	private final TimerLoader loader;
+	private final Scanner scanner;
+	private final TimerReport timerReport;
+	private final NotificationGUIInterface notificationGUI;
 
 	public TimerApp() {
 		timerRecordList = new ArrayList<>();
-		recordNotifactions = new HashMap<>();
+		recordNotifications = new HashMap<>();
 		scheduler = new Timer();
 		timerGUI = new TimerGUI();
 		saver = new TimerSaver();
@@ -142,7 +143,7 @@ public class TimerApp {
 
 		if (timer.isPresent()) {
 			timer.get().stopTimer();
-			recordNotifactions.get(timer.get()).cancel();
+			recordNotifications.get(timer.get()).cancel();
 		}
 	}
 
@@ -168,7 +169,7 @@ public class TimerApp {
 		}
 
 		String filename = "rep.csv";
-		timerReport.saveReport(filename, timerReport.createReportContent(start, stop, (ArrayList) timerRecordList));
+		timerReport.saveReport(filename, start, stop, new ArrayList(timerRecordList));
 
 		return filename;
 	}
@@ -201,7 +202,7 @@ public class TimerApp {
 			}
 		};
 
-		recordNotifactions.put(timerRecord, task);
+		recordNotifications.put(timerRecord, task);
 		scheduler.schedule(task, Date.from(limitTime));
 	}
 }
