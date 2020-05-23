@@ -55,7 +55,6 @@ public class TimerApp {
 		}
 	}
 
-
 	private String[] getAndParseInput() {
 		return scanner
 				.nextLine()
@@ -124,6 +123,7 @@ public class TimerApp {
 		}
 
 		filename += ".csv";
+
 		timerReport.saveReport(filename, start, stop, new ArrayList(timerRecordList));
 
 		return filename;

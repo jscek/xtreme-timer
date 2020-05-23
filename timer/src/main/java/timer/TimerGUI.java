@@ -9,7 +9,6 @@ import timer.notification.NotificationGUIInterface;
 public abstract class TimerGUI {
 
 	public TimerGUI() {
-
 	}
 
 	public abstract void display(List<TimerRecord> timerRecordList);
