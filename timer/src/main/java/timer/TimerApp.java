@@ -2,8 +2,6 @@ package timer;
 
 import java.time.Instant;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.*;
 import java.time.Duration;
 
@@ -89,7 +87,6 @@ public class TimerApp {
 	}
 
 	Optional<TimerRecord> getTimerById(Long id) {
-
 		return timerRecordList.stream().filter(e -> e.getId().equals(id)).findFirst();
 	}
 
