@@ -13,7 +13,7 @@ import timer.notification.NotificationGUIInterface;
 
 public class TimerApp {
 	private List<TimerRecord> timerRecordList;
-	private Map<TimerRecord, TimerTask> recordNotifactions;
+	private Map<TimerRecord, TimerTask> recordNotifications;
 	private Timer scheduler;
 	private TimerGUI timerGUI;
 	private TimerSaver saver;
@@ -25,7 +25,7 @@ public class TimerApp {
 
 	public TimerApp() {
 		timerRecordList = new ArrayList<>();
-		recordNotifactions = new HashMap<>();
+		recordNotifications = new HashMap<>();
 		scheduler = new Timer();
 		timerGUI = new TimerGUI();
 		saver = new TimerSaver();
@@ -141,7 +141,7 @@ public class TimerApp {
 
 		if (timer.isPresent()) {
 			timer.get().stopTimer();
-			recordNotifactions.get(timer.get()).cancel();
+			recordNotifications.get(timer.get()).cancel();
 		}
 	}
 
@@ -200,7 +200,7 @@ public class TimerApp {
 			}
 		};
 
-		recordNotifactions.put(timerRecord, task);
+		recordNotifications.put(timerRecord, task);
 		scheduler.schedule(task, Date.from(limitTime));
 	}
 }
