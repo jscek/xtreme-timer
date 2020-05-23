@@ -23,6 +23,7 @@ public class TimerApp {
 	private final Scanner scanner;
 	private final TimerReport timerReport;
 	private final NotificationGUIInterface notificationGUI;
+
 	private final Actions actions;
 	private final TimersGUI timersGUI;
 	private final GUI GUI;
@@ -123,7 +124,6 @@ public class TimerApp {
 		}
 
 		filename += ".csv";
-
 		timerReport.saveReport(filename, start, stop, new ArrayList(timerRecordList));
 
 		return filename;
