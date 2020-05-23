@@ -18,19 +18,19 @@ public class TimerApp {
 
 	private final Map<TimerRecord, TimerTask> recordNotifications;
 	private final Timer scheduler;
-	private final TimerGUI timerGUI;
 	private final TimerSaver saver;
 	private final TimerLoader loader;
 	private final Scanner scanner;
 	private final TimerReport timerReport;
 	private final NotificationGUIInterface notificationGUI;
 	private final Actions actions;
+	private final TimersGUI timersGUI;
+	private final GUI GUI;
 
 	public TimerApp() {
 		timerRecordList = new ArrayList<>();
 		recordNotifications = new HashMap<>();
 		scheduler = new Timer();
-		timerGUI = new TimerGUI();
 		saver = new TimerSaver();
 		loader = new TimerLoader();
 		scanner = new Scanner(System.in);
@@ -38,6 +38,8 @@ public class TimerApp {
 		shouldFinish = false;
 		notificationGUI = new NotificationGUI();
 		actions = new Actions();
+		timersGUI = new TimersGUI();
+		GUI = new GUI();
 	}
 
 	public List<TimerRecord> getTimerRecords() {
@@ -46,7 +48,7 @@ public class TimerApp {
 
 	public void start() {
 		while (!shouldFinish) {
-			timerGUI.displayGUI(timerRecordList);
+			GUI.display(timerRecordList);
 			String[] input = getAndParseInput();
 			actions.perform(this, input);
 			clearConsole();
