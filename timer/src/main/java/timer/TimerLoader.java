@@ -29,9 +29,21 @@ public class TimerLoader {
         Long id = Long.parseLong(fields[0]);
         String projectName = fields[1];
         Instant startTime = Instant.parse(fields[2]);
-        Instant stopTime = Instant.parse(fields[3]);
+        Instant stopTime;
+        try {
+            stopTime = Instant.parse(fields[3]);
+        } catch (Exception e) {
+            stopTime = null;
+//            e.printStackTrace();
+        }
         boolean isRunning = Boolean.parseBoolean(fields[4]);
-        Duration duration = Duration.ofSeconds(Long.parseLong(fields[5]));
+        Duration duration;
+        try {
+            duration = Duration.ofSeconds(Long.parseLong(fields[5]));
+        } catch (Exception e) {
+            duration = null;
+//            e.printStackTrace();
+        }
 
         return new TimerRecord(id, projectName, startTime, stopTime, isRunning, duration);
     }
