@@ -13,17 +13,21 @@ import java.util.stream.Stream;
 public class TimerLoader {
     public List<TimerRecord> loadFromFile(String filename) {
         if (filename != null && !filename.isEmpty()) {
-            try (Stream<String> lines = Files.lines(Paths.get(filename))) {
-                return lines.map(this::getStringAsRecord).collect(Collectors.toList());
-            } catch (IOException e) {
-                System.err.println("File not found");
-            }
+            return getTimerRecordsFromFile(filename);
         }
-
         return Collections.emptyList();
     }
 
-    public TimerRecord getStringAsRecord(String line) {
+    private List<TimerRecord> getTimerRecordsFromFile(String filename) {
+        try (Stream<String> lines = Files.lines(Paths.get(filename))) {
+            return lines.map(this::convertStringToTimerRecord).collect(Collectors.toList());
+        } catch (IOException e) {
+            System.err.println("File not found");
+        }
+        return Collections.emptyList();
+    }
+
+    public TimerRecord convertStringToTimerRecord(String line) {
         String[] fields = line.split(";");
 
         Long id = Long.parseLong(fields[0]);
