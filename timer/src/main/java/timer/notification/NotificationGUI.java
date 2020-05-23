@@ -19,7 +19,7 @@ public class NotificationGUI implements NotificationGUIInterface {
 			tray.add(trayIcon);
 			displayMessage(mode, title, msg, trayIcon);
 		} catch (Exception ex) {
-			System.err.print(ex.getMessage());
+			System.err.println("Unsupported desktop environment.");
 		}
 	}
 
@@ -41,6 +41,7 @@ public class NotificationGUI implements NotificationGUIInterface {
 			case WARNING:
 				trayIcon.displayMessage(title, msg, TrayIcon.MessageType.WARNING);
 				break;
+			}
+
 		}
-	}
 }
