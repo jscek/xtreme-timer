@@ -2,6 +2,7 @@ package timer.notification;
 
 import java.awt.*;
 
+import org.apache.commons.lang3.SystemUtils;
 import timer.enums.NotifyMode;
 
 public class NotificationGUI implements NotificationGUIInterface {
@@ -9,8 +10,10 @@ public class NotificationGUI implements NotificationGUIInterface {
 	private Image image;
 
 	public NotificationGUI() {
-		tray = SystemTray.getSystemTray();
-		image = Toolkit.getDefaultToolkit().createImage("some-icon.png");
+		if (SystemUtils.IS_OS_WINDOWS) {
+			tray = SystemTray.getSystemTray();
+			image = Toolkit.getDefaultToolkit().createImage("some-icon.png");
+		}
 	}
 
 	public void showNotification(NotifyMode mode, String title, String msg) {
