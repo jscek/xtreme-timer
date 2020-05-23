@@ -28,7 +28,7 @@ public class NotificationGUI implements NotificationGUIInterface {
 			}
 
 		} catch (Exception ex) {
-			System.err.print(ex);
+			System.err.println("Unsupported desktop environment.");
 		}
 	}
 }

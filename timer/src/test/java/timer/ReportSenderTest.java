@@ -3,9 +3,9 @@ package timer;
 import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-public class SendEmailTest {
+public class ReportSenderTest {
 
-    private SendEmail newMail = new SendEmail();
+    private ReportSender newMail = new ReportSender();
 
     @Test
     public void send() {
