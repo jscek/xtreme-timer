@@ -36,30 +36,38 @@ public class Actions {
                 app.shouldFinish = true;
                 break;
             case "report":
-                if (input.length == 1) {
-                    app.createReport(null, null, "default");
-                } else {
-                    LocalDate date = LocalDate.parse(input[1]);
-                    Instant start = date.atStartOfDay(ZoneId.of("Europe/Paris")).toInstant();
-                    LocalDate date2 = LocalDate.parse(input[2]);
-                    Instant stop = date2.atStartOfDay(ZoneId.of("Europe/Paris")).toInstant();
-                    if (input.length == 3)
-                        app.createReport(start, stop, "default");
-                    else
-                        app.createReport(start, stop, input[3]);
-                }
+                createReport(app, input);
                 break;
             case "sendemail":
-                if (input.length == 1) {
-                    ReportSender.send("extremetimerPE2020@wp.pl", "Test3", "This is the report", app.createReport(null, null, "report"));
-                } else if (input.length == 4) {
-                    ReportSender.send(input[1], input[2], input[3], app.createReport(null, null, "report"));
-                } else {
-                    System.out.println("Wrong parameters provided");
-                }
+                sendEmail(app, input);
                 break;
             case "refresh":
                 break;
+        }
+    }
+
+    private void sendEmail(TimerApp app, String[] input) {
+        if (input.length == 1) {
+            ReportSender.send("extremetimerPE2020@wp.pl", "Test3", "This is the report", app.createReport(null, null, "report"));
+        } else if (input.length == 4) {
+            ReportSender.send(input[1], input[2], input[3], app.createReport(null, null, "report"));
+        } else {
+            System.out.println("Wrong parameters provided");
+        }
+    }
+
+    private void createReport(TimerApp app, String[] input) {
+        if (input.length == 1) {
+            app.createReport(null, null, "default");
+        } else {
+            LocalDate date = LocalDate.parse(input[1]);
+            Instant start = date.atStartOfDay(ZoneId.of("Europe/Paris")).toInstant();
+            LocalDate date2 = LocalDate.parse(input[2]);
+            Instant stop = date2.atStartOfDay(ZoneId.of("Europe/Paris")).toInstant();
+            if (input.length == 3)
+                app.createReport(start, stop, "default");
+            else
+                app.createReport(start, stop, input[3]);
         }
     }
 }

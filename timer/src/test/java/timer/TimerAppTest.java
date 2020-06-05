@@ -21,7 +21,6 @@ public class TimerAppTest {
 
 	@Test
 	public void addTimer() {
-
 		TimerApp timerApp = new TimerApp();
 		timerApp.addTimer();
 		assertThat(timerApp.getTimerRecords()).isNotEmpty();
@@ -37,8 +36,6 @@ public class TimerAppTest {
 		timerApp.addTimer();
 		timerApp.startTimer(1L);
 		assertThat(timerApp.getTimerRecords().get(0).isRunning()).isTrue();
-
-
 	}
 
 	@Test
@@ -48,7 +45,6 @@ public class TimerAppTest {
 		timerApp.startTimer(1L);
 		timerApp.stopTimer(1L);
 		assertThat(timerApp.getTimerRecords().get(0).isRunning()).isFalse();
-
 	}
 
 	@Test
