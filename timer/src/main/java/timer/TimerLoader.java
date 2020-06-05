@@ -40,10 +40,10 @@ public class TimerLoader {
             stopTime = null;
 //            e.printStackTrace();
         }
-        boolean isRunning = Boolean.parseBoolean(fields[4]);
+        boolean isRunning = Boolean.parseBoolean(fields[5]);
         Duration duration;
         try {
-            duration = Duration.ofSeconds(Long.parseLong(fields[5]));
+            duration = Duration.ofSeconds(Long.parseLong(fields[4]));
         } catch (Exception e) {
             duration = null;
 //            e.printStackTrace();
