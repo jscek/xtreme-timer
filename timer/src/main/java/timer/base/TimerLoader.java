@@ -1,4 +1,6 @@
-package timer;
+package timer.base;
+
+import timer.base.TimerRecord;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -32,11 +34,19 @@ public class TimerLoader {
 
         Long id = Long.parseLong(fields[0]);
         String projectName = fields[1];
-        Instant startTime = Instant.parse(fields[2]);
-        Instant stopTime = Instant.parse(fields[3]);
+        Instant startTime = parseInstant(fields[2]);
+        Instant stopTime = parseInstant(fields[3]);
         boolean isRunning = Boolean.parseBoolean(fields[4]);
         Duration duration = Duration.ofSeconds(Long.parseLong(fields[5]));
 
         return new TimerRecord(id, projectName, startTime, stopTime, isRunning, duration);
+    }
+
+    private Instant parseInstant(String value) {
+        if (value.equals("null")) {
+            return null;
+        } else {
+            return Instant.parse(value);
+        }
     }
 }

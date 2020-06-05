@@ -1,4 +1,4 @@
-package timer;
+package timer.utils;
 
 import java.io.FileReader;
 import java.io.IOException;

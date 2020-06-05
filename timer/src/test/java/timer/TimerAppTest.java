@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
-import timer.TimerApp;
+import timer.base.TimerApp;
 
 import java.io.File;
 

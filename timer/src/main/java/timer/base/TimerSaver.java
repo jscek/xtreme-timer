@@ -1,4 +1,6 @@
-package timer;
+package timer.base;
+
+import timer.base.TimerRecord;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -23,6 +25,6 @@ public class TimerSaver {
 
     private String getRecordAsString(TimerRecord record) {
         return record.getId() + ";" + record.getProjectName() + ";" + record.getStartTime() + ";" +
-                record.getStopTime() + ";" + record.getDuration().getSeconds() + ";" + record.isRunning() + "\n";
+                record.getStopTime() + ";" + record.isRunning() + ";" + record.getDuration().getSeconds() + "\n";
     }
 }

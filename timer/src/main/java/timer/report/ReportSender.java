@@ -1,6 +1,6 @@
 package timer.report;
 
-import timer.PropertiesReader;
+import timer.utils.PropertiesReader;
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;

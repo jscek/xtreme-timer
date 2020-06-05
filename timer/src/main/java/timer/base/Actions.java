@@ -1,5 +1,6 @@
-package timer;
+package timer.base;
 
+import timer.base.TimerApp;
 import timer.report.ReportSender;
 
 import java.time.Duration;

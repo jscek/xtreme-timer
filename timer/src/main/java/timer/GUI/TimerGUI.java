@@ -2,10 +2,7 @@ package timer.GUI;
 
 import java.util.List;
 
-import timer.TimerRecord;
-import timer.enums.NotifyMode;
-import timer.notification.NotificationGUI;
-import timer.notification.NotificationGUIInterface;
+import timer.base.TimerRecord;
 
 public abstract class TimerGUI {
 

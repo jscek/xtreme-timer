@@ -1,7 +1,6 @@
 package timer.GUI;
 
-import timer.GUI.TimerGUI;
-import timer.TimerRecord;
+import timer.base.TimerRecord;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package timer;
+package timer.base;
 
 import java.time.Duration;
 import java.time.Instant;

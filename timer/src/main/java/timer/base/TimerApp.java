@@ -1,4 +1,4 @@
-package timer;
+package timer.base;
 
 import java.time.Instant;
 import java.io.IOException;
@@ -51,7 +51,6 @@ public class TimerApp {
 			GUI.display(timerRecordList);
 			String[] input = getAndParseInput();
 			actions.perform(this, input);
-			clearConsole();
 		}
 	}
 
@@ -114,17 +113,13 @@ public class TimerApp {
 	}
 
 	public String createReport(Instant start, Instant stop, String filename) {
-		if (start == null) {
-			start = Instant.parse("2018-11-30T18:35:24.00Z");
-		}
-		if (stop == null) {
-			stop = Instant.parse("9999-11-30T18:35:24.00Z");
-		}
-
 		filename += ".csv";
 
-		timerReport.saveReport(filename, start, stop, new ArrayList(timerRecordList));
-
+		if (start == null && stop == null) {
+			timerReport.saveReport(filename, timerRecordList);
+		} else {
+			timerReport.saveReport(filename, start, stop, timerRecordList);
+		}
 		return filename;
 	}
 
@@ -138,10 +133,6 @@ public class TimerApp {
 
 	public void loadTimerRecords(String filename) {
 		timerRecordList = loader.loadFromFile(filename);
-	}
-
-	private void clearConsole() {
-		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 	}
 
 	private void registerNotification(TimerRecord timerRecord) {
