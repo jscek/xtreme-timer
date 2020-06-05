@@ -6,7 +6,7 @@ import java.time.Duration;
 
 import org.junit.jupiter.api.Test;
 
-import timer.TimerRecord;
+import timer.base.TimerRecord;
 
 public class TimerRecordTest {
 

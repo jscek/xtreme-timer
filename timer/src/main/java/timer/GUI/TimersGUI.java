@@ -1,4 +1,6 @@
-package timer;
+package timer.GUI;
+
+import timer.base.TimerRecord;
 
 import de.vandermeer.asciitable.AsciiTable;
 import de.vandermeer.skb.interfaces.transformers.textformat.TextAlignment;

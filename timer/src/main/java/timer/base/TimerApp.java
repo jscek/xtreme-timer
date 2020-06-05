@@ -1,14 +1,16 @@
-package timer;
+package timer.base;
 
 import java.time.Instant;
 import java.io.IOException;
 import java.util.*;
 import java.time.Duration;
 
+import timer.GUI.GUI;
 import timer.enums.NotifyMode;
 import timer.notification.NotificationGUI;
 import timer.notification.NotificationGUIInterface;
-import timer.Actions;
+import timer.report.TimerReport;
+import timer.utils.PropertiesReader;
 
 public class TimerApp {
 	private List<TimerRecord> timerRecordList;
@@ -23,7 +25,6 @@ public class TimerApp {
 	private final NotificationGUIInterface notificationGUI;
 
 	private final Actions actions;
-	private final TimersGUI timersGUI;
 	private final GUI GUI;
 
 	public TimerApp() {
@@ -37,21 +38,21 @@ public class TimerApp {
 		shouldFinish = false;
 		notificationGUI = new NotificationGUI();
 		actions = new Actions();
-		timersGUI = new TimersGUI();
 		GUI = new GUI();
 	}
 
-	public List<TimerRecord> getTimerRecords() {
-		return timerRecordList;
-	}
-
 	public void start() {
+		loadRecordsFromStorage();
 		while (!shouldFinish) {
 			GUI.display(timerRecordList);
 			String[] input = getAndParseInput();
 			actions.perform(this, input);
-			clearConsole();
 		}
+	}
+
+	private void loadRecordsFromStorage() {
+		String filename = PropertiesReader.getInstance().getProperty("storage", "");
+		loadTimerRecords(filename);
 	}
 
 	private String[] getAndParseInput() {
@@ -76,7 +77,6 @@ public class TimerApp {
 		return timerRecordList.size() + 1L;
 	}
 
-
 	public void startTimer(Long id) {
 		Optional<TimerRecord> timer = getTimerById(id);
 
@@ -95,7 +95,9 @@ public class TimerApp {
 
 		if (timer.isPresent()) {
 			timer.get().stopTimer();
-			recordNotifications.get(timer.get()).cancel();
+			if (recordNotifications.containsKey(timer.get())) {
+				recordNotifications.get(timer.get()).cancel();
+			}
 		}
 	}
 
@@ -113,16 +115,13 @@ public class TimerApp {
 	}
 
 	public String createReport(Instant start, Instant stop, String filename) {
-		if (start == null) {
-			start = Instant.parse("2018-11-30T18:35:24.00Z");
-		}
-		if (stop == null) {
-			stop = Instant.parse("9999-11-30T18:35:24.00Z");
-		}
-
 		filename += ".csv";
-		timerReport.saveReport(filename, start, stop, new ArrayList(timerRecordList));
 
+		if (start == null && stop == null) {
+			timerReport.saveReport(filename, timerRecordList);
+		} else {
+			timerReport.saveReport(filename, start, stop, timerRecordList);
+		}
 		return filename;
 	}
 
@@ -136,10 +135,6 @@ public class TimerApp {
 
 	public void loadTimerRecords(String filename) {
 		timerRecordList = loader.loadFromFile(filename);
-	}
-
-	private void clearConsole() {
-		System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 	}
 
 	private void registerNotification(TimerRecord timerRecord) {
@@ -156,5 +151,9 @@ public class TimerApp {
 
 		recordNotifications.put(timerRecord, task);
 		scheduler.schedule(task, Date.from(limitTime));
+	}
+
+	public List<TimerRecord> getTimerRecords() {
+		return timerRecordList;
 	}
 }

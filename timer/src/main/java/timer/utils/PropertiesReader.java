@@ -1,6 +1,5 @@
-package timer;
+package timer.utils;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -9,19 +8,15 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class PropertiesReader {
-
+	private static PropertiesReader INSTANCE;
 	private JSONObject jsonObject = new JSONObject();
 	JSONParser parser = new JSONParser();
 
-	public PropertiesReader() {
+	private PropertiesReader(){
 		try {
 			Object obj = parser.parse(new FileReader("properties.json"));
 			jsonObject = (JSONObject) obj;
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
+		} catch (ParseException | IOException e) {
 			e.printStackTrace();
 		}
 		if (jsonObject == null) {
@@ -29,10 +24,15 @@ public class PropertiesReader {
 		}
 	}
 
-	String getProperties(String propertyName, String defaultValue) {
+	public static PropertiesReader getInstance() {
+		if (INSTANCE == null) {
+			INSTANCE = new PropertiesReader();
+		}
+		return INSTANCE;
+	}
+
+	public String getProperty(String propertyName, String defaultValue) {
 		String value = (String) jsonObject.get(propertyName);
 		return value != null ? value : defaultValue;
 	}
-
-
 }

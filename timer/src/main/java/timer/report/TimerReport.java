@@ -1,6 +1,7 @@
-package timer;
+package timer.report;
 
 import com.opencsv.CSVWriter;
+import timer.base.TimerRecord;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -8,19 +9,28 @@ import java.io.IOException;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class TimerReport {
     private final ArrayList<String> headers = new ArrayList<>(Arrays.asList(
-        "project_name", "time"
+            "project_name", "time"
     ));
 
-    public void saveReport(String filename, Instant start, Instant stop, ArrayList<TimerRecord> timerRecords) {
+    public void saveReport(String filename, Instant start, Instant stop, List<TimerRecord> timerRecords) {
+        timerRecords = timerRecords.stream()
+                .filter(record -> record.isBetween(start, stop))
+                .collect(Collectors.toList());
+        saveReport(filename, timerRecords);
+    }
+
+    public void saveReport(String filename, List<TimerRecord> timerRecords) {
         File file = new File(filename);
         try {
             FileWriter outfile = new FileWriter(file);
             CSVWriter writer = new CSVWriter(outfile);
 
-            ArrayList<ArrayList<String>> content = this.createReportContent(start, stop, timerRecords);
+            ArrayList<ArrayList<String>> content = this.createReportContent(timerRecords);
 
             for (ArrayList<String> row : content) {
                 writer.writeNext(row.toArray(new String[0]));
@@ -31,19 +41,18 @@ public class TimerReport {
         }
     }
 
-    private ArrayList<ArrayList<String>> createReportContent(Instant start, Instant stop, ArrayList<TimerRecord> timerRecords) {
+
+    private ArrayList<ArrayList<String>> createReportContent(List<TimerRecord> timerRecords) {
         ArrayList<ArrayList<String>> rows = new ArrayList<>();
         rows.add(this.headers);
 
         for (TimerRecord record : timerRecords) {
-            if (record.isBetween(start, stop)) {
-                ArrayList<String> row = new ArrayList<>();
+            ArrayList<String> row = new ArrayList<>();
 
-                row.add(record.getProjectName());
-                row.add(displayDuration(record.getDuration().getSeconds()));
+            row.add(record.getProjectName());
+            row.add(displayDuration(record.getDuration().getSeconds()));
 
-                rows.add(row);
-            }
+            rows.add(row);
         }
 
         return rows;

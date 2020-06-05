@@ -3,8 +3,8 @@ package timer;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-import timer.TimerRecord;
-import timer.TimerSaver;
+import timer.base.TimerRecord;
+import timer.base.TimerSaver;
 
 import java.io.File;
 import java.io.IOException;

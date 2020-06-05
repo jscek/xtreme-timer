@@ -1,4 +1,4 @@
-package timer;
+package timer.base;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -28,7 +28,6 @@ public class TimerRecord {
         this.stopTime = stopTime;
         this.isRunning = isRunning;
         this.duration = duration;
-        this.limit = null;
     }
 
     public Instant getStartTime() {
