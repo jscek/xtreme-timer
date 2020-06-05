@@ -28,7 +28,6 @@ public class TimerRecord {
         this.stopTime = stopTime;
         this.isRunning = isRunning;
         this.duration = duration;
-        this.limit = null;
     }
 
     public Instant getStartTime() {

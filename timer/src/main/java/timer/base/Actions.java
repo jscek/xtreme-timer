@@ -2,6 +2,7 @@ package timer.base;
 
 import timer.base.TimerApp;
 import timer.report.ReportSender;
+import timer.utils.PropertiesReader;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -35,6 +36,7 @@ public class Actions {
                 break;
             case "quit":
                 app.shouldFinish = true;
+                saveToStorage(app);
                 break;
             case "report":
                 createReport(app, input);
@@ -45,6 +47,18 @@ public class Actions {
             case "refresh":
                 break;
         }
+    }
+
+    private void saveToStorage(TimerApp app) {
+        String filename = PropertiesReader.getInstance().getProperty("storage", "storage");
+        filename = filename.substring(0, filename.indexOf("."));
+        if (shouldSave()) {
+            app.saveTimerRecords(filename);
+        }
+    }
+
+    private boolean shouldSave() {
+        return PropertiesReader.getInstance().getProperty("saveOnExit", "false").equals("true");
     }
 
     private void sendEmail(TimerApp app, String[] input) {

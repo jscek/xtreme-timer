@@ -6,11 +6,11 @@ import java.util.*;
 import java.time.Duration;
 
 import timer.GUI.GUI;
-import timer.GUI.TimersGUI;
 import timer.enums.NotifyMode;
 import timer.notification.NotificationGUI;
 import timer.notification.NotificationGUIInterface;
 import timer.report.TimerReport;
+import timer.utils.PropertiesReader;
 
 public class TimerApp {
 	private List<TimerRecord> timerRecordList;
@@ -25,7 +25,6 @@ public class TimerApp {
 	private final NotificationGUIInterface notificationGUI;
 
 	private final Actions actions;
-	private final TimersGUI timersGUI;
 	private final GUI GUI;
 
 	public TimerApp() {
@@ -39,20 +38,21 @@ public class TimerApp {
 		shouldFinish = false;
 		notificationGUI = new NotificationGUI();
 		actions = new Actions();
-		timersGUI = new TimersGUI();
 		GUI = new GUI();
 	}
 
-	public List<TimerRecord> getTimerRecords() {
-		return timerRecordList;
-	}
-
 	public void start() {
+		loadRecordsFromStorage();
 		while (!shouldFinish) {
 			GUI.display(timerRecordList);
 			String[] input = getAndParseInput();
 			actions.perform(this, input);
 		}
+	}
+
+	private void loadRecordsFromStorage() {
+		String filename = PropertiesReader.getInstance().getProperty("storage", "");
+		loadTimerRecords(filename);
 	}
 
 	private String[] getAndParseInput() {
@@ -77,7 +77,6 @@ public class TimerApp {
 		return timerRecordList.size() + 1L;
 	}
 
-
 	public void startTimer(Long id) {
 		Optional<TimerRecord> timer = getTimerById(id);
 
@@ -96,7 +95,9 @@ public class TimerApp {
 
 		if (timer.isPresent()) {
 			timer.get().stopTimer();
-			recordNotifications.get(timer.get()).cancel();
+			if (recordNotifications.containsKey(timer.get())) {
+				recordNotifications.get(timer.get()).cancel();
+			}
 		}
 	}
 
@@ -150,5 +151,9 @@ public class TimerApp {
 
 		recordNotifications.put(timerRecord, task);
 		scheduler.schedule(task, Date.from(limitTime));
+	}
+
+	public List<TimerRecord> getTimerRecords() {
+		return timerRecordList;
 	}
 }

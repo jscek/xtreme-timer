@@ -15,14 +15,14 @@ import java.util.Properties;
 public class ReportSender {
 
     public static void send(String receiver, String mailSubject, String mailText, String attachmentSource) {
-        PropertiesReader propertiesReader = new PropertiesReader();
+        PropertiesReader propertiesReader = PropertiesReader.getInstance();
 
-        String host = propertiesReader.getProperties("host", "smtp.wp.pl");
-        final String user = propertiesReader.getProperties("user", "extremetimerPE2020@wp.pl");
-        final String password = propertiesReader.getProperties("password", "PErules1");
+        String host = propertiesReader.getProperty("host", "smtp.wp.pl");
+        final String user = propertiesReader.getProperty("user", "extremetimerPE2020@wp.pl");
+        final String password = propertiesReader.getProperty("password", "PErules1");
 
         if (receiver == null) {
-            receiver = propertiesReader.getProperties("receiver", "extremetimerPE2020@wp.pl");
+            receiver = propertiesReader.getProperty("receiver", "extremetimerPE2020@wp.pl");
         }
 
         //Get the session object
@@ -49,27 +49,6 @@ public class ReportSender {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
-    }
-
-    private static MimeMessage getMimeMessage(String receiver, String mailSubject, String mailText, String attachmentSource, String user, Session session) throws MessagingException {
-        MimeMessage message = new MimeMessage(session);
-        message.setFrom(new InternetAddress(user));
-        message.addRecipient(Message.RecipientType.TO, new InternetAddress(receiver));
-        message.setSubject(mailSubject);
-
-        Multipart multipart = new MimeMultipart();
-        MimeBodyPart textBodyPart = new MimeBodyPart();
-        textBodyPart.setText(mailText);
-
-        MimeBodyPart attachmentBodyPart = new MimeBodyPart();
-        DataSource source = new FileDataSource(attachmentSource);
-        attachmentBodyPart.setDataHandler(new DataHandler(source));
-        attachmentBodyPart.setFileName(attachmentSource);
-
-        multipart.addBodyPart(textBodyPart);
-        multipart.addBodyPart(attachmentBodyPart);
-        message.setContent(multipart);
-        return message;
     }
 
     private static Session getSession(String user, String password, Properties props) {

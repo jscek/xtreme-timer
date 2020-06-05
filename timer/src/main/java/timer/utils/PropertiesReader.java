@@ -8,11 +8,11 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class PropertiesReader {
-
+	private static PropertiesReader INSTANCE;
 	private JSONObject jsonObject = new JSONObject();
 	JSONParser parser = new JSONParser();
 
-	public PropertiesReader() {
+	private PropertiesReader(){
 		try {
 			Object obj = parser.parse(new FileReader("properties.json"));
 			jsonObject = (JSONObject) obj;
@@ -24,7 +24,14 @@ public class PropertiesReader {
 		}
 	}
 
-	public String getProperties(String propertyName, String defaultValue) {
+	public static PropertiesReader getInstance() {
+		if (INSTANCE == null) {
+			INSTANCE = new PropertiesReader();
+		}
+		return INSTANCE;
+	}
+
+	public String getProperty(String propertyName, String defaultValue) {
 		String value = (String) jsonObject.get(propertyName);
 		return value != null ? value : defaultValue;
 	}
