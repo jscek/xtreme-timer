@@ -23,9 +23,10 @@ public class TimerApp {
 	private final Scanner scanner;
 	private final TimerReport timerReport;
 	private final NotificationGUIInterface notificationGUI;
+
 	private final Actions actions;
 	private final TimersGUI timersGUI;
-	private final timer.GUI.GUI GUI;
+	private final GUI GUI;
 
 	public TimerApp() {
 		timerRecordList = new ArrayList<>();

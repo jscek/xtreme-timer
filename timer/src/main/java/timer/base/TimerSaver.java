@@ -15,9 +15,9 @@ public class TimerSaver {
         }
 }
 
-    private void writeRecordToFile(FileWriter writer, TimerRecord record) {
+    private void writeRecordToFile(FileWriter writer, TimerRecord timeRecord) {
         try {
-            writer.write(getRecordAsString(record));
+            writer.write(getRecordAsString(timeRecord));
         } catch (IOException e) {
             e.printStackTrace();
         }
