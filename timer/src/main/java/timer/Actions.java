@@ -1,5 +1,7 @@
 package timer;
 
+import timer.report.ReportSender;
+
 import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDate;

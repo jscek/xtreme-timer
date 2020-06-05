@@ -1,4 +1,7 @@
-package timer;
+package timer.GUI;
+
+import timer.GUI.TimerGUI;
+import timer.TimerRecord;
 
 import java.util.List;
 

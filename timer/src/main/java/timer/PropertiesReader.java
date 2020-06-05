@@ -1,6 +1,5 @@
 package timer;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -17,11 +16,7 @@ public class PropertiesReader {
 		try {
 			Object obj = parser.parse(new FileReader("properties.json"));
 			jsonObject = (JSONObject) obj;
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
+		} catch (ParseException | IOException e) {
 			e.printStackTrace();
 		}
 		if (jsonObject == null) {
@@ -29,10 +24,8 @@ public class PropertiesReader {
 		}
 	}
 
-	String getProperties(String propertyName, String defaultValue) {
+	public String getProperties(String propertyName, String defaultValue) {
 		String value = (String) jsonObject.get(propertyName);
 		return value != null ? value : defaultValue;
 	}
-
-
 }

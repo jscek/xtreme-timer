@@ -5,10 +5,12 @@ import java.io.IOException;
 import java.util.*;
 import java.time.Duration;
 
+import timer.GUI.GUI;
+import timer.GUI.TimersGUI;
 import timer.enums.NotifyMode;
 import timer.notification.NotificationGUI;
 import timer.notification.NotificationGUIInterface;
-import timer.Actions;
+import timer.report.TimerReport;
 
 public class TimerApp {
 	private List<TimerRecord> timerRecordList;
@@ -23,7 +25,7 @@ public class TimerApp {
 	private final NotificationGUIInterface notificationGUI;
 	private final Actions actions;
 	private final TimersGUI timersGUI;
-	private final GUI GUI;
+	private final timer.GUI.GUI GUI;
 
 	public TimerApp() {
 		timerRecordList = new ArrayList<>();

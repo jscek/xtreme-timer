@@ -2,6 +2,7 @@ package timer;
 
 import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Test;
+import timer.report.ReportSender;
 
 public class ReportSenderTest {
 

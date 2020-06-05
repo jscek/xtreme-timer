@@ -1,6 +1,7 @@
-package timer;
+package timer.report;
 
 import com.opencsv.CSVWriter;
+import timer.TimerRecord;
 
 import java.io.File;
 import java.io.FileWriter;
