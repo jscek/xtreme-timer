@@ -7,14 +7,20 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class TimerReport {
+    private final ArrayList<String> headers = new ArrayList<>(Arrays.asList(
+        "project_name", "time"
+    ));
 
-    public void saveReport(String filename, ArrayList<ArrayList<String>> content) {
+    public void saveReport(String filename, Instant start, Instant stop, ArrayList<TimerRecord> timerRecords) {
         File file = new File(filename);
         try {
-            FileWriter outputfile = new FileWriter(file);
-            CSVWriter writer = new CSVWriter(outputfile);
+            FileWriter outfile = new FileWriter(file);
+            CSVWriter writer = new CSVWriter(outfile);
+
+            ArrayList<ArrayList<String>> content = this.createReportContent(start, stop, timerRecords);
 
             for (ArrayList<String> row : content) {
                 writer.writeNext(row.toArray(new String[0]));
@@ -25,40 +31,22 @@ public class TimerReport {
         }
     }
 
-    public ArrayList<ArrayList<String>> createReportContent(Instant start, Instant stop, ArrayList<TimerRecord> list) {
+    private ArrayList<ArrayList<String>> createReportContent(Instant start, Instant stop, ArrayList<TimerRecord> timerRecords) {
+        ArrayList<ArrayList<String>> rows = new ArrayList<>();
+        rows.add(this.headers);
 
-        ArrayList<String> headers = new ArrayList<String>();
-        ArrayList<ArrayList<String>> rows = new ArrayList<ArrayList<String>>();
-
-        headers.add("projectName");
-        headers.add("time");
-
-        rows.add(headers);
-
-        for (TimerRecord record : list) {
-            if (this.checkIfBetween(start, stop, record)) {
+        for (TimerRecord record : timerRecords) {
+            if (record.isBetween(start, stop)) {
                 ArrayList<String> row = new ArrayList<>();
-                row.add(record.getProjectName());
 
+                row.add(record.getProjectName());
                 row.add(displayDuration(record.getDuration().getSeconds()));
+
                 rows.add(row);
             }
         }
 
         return rows;
-    }
-
-    public boolean checkIfBetween(Instant start, Instant stop, TimerRecord record) {
-
-        if (record.getStartTime() == null)
-            return false;
-
-        if (record.getStartTime().compareTo(start) > 0
-                && (record.getStopTime() == null || record.getStopTime().compareTo(stop) < 0)) {
-            return true;
-        } else
-            return false;
-
     }
 
     private String displayDuration(long duration) {

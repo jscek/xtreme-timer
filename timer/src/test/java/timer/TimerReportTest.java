@@ -38,22 +38,22 @@ class TimerReportTest {
 
     @Test
     void checkReportLineCount() throws IOException, URISyntaxException {
-        assertThat(app.createReport(null, null));
-        assertEquals(countCsvLines(), 4);
+        assertThat(app.createReport(null, null, "default"));
+        assertEquals( 4,countCsvLines());
         Instant start = Instant.now();
         long s = new Date().getTime();
         while (new Date().getTime() - s < 2000L) {        }
         Instant stop = Instant.now();
         app.addTimer();
         app.startTimer((long) 4);
-        assertThat(app.createReport(start, stop));
+        assertThat(app.createReport(start, stop, "default"));
         assertEquals(countCsvLines(), 2);
 
     }
 
     private int countCsvLines() throws URISyntaxException, IOException {
 
-        Reader reader = Files.newBufferedReader(Paths.get("rep.csv"));
+        Reader reader = Files.newBufferedReader(Paths.get("default.csv"));
 
         List<String[]> list = new ArrayList<>();
         CSVReader csvReader = new CSVReader(reader);

@@ -13,25 +13,41 @@ import java.util.stream.Stream;
 public class TimerLoader {
     public List<TimerRecord> loadFromFile(String filename) {
         if (filename != null && !filename.isEmpty()) {
-            try (Stream<String> lines = Files.lines(Paths.get(filename))) {
-                return lines.map(this::getStringAsRecord).collect(Collectors.toList());
-            } catch (IOException e) {
-                System.err.println("File not found");
-            }
+            return getTimerRecordsFromFile(filename);
         }
-
         return Collections.emptyList();
     }
 
-    public TimerRecord getStringAsRecord(String line) {
+    private List<TimerRecord> getTimerRecordsFromFile(String filename) {
+        try (Stream<String> lines = Files.lines(Paths.get(filename))) {
+            return lines.map(this::convertStringToTimerRecord).collect(Collectors.toList());
+        } catch (IOException e) {
+            System.err.println("File not found");
+        }
+        return Collections.emptyList();
+    }
+
+    public TimerRecord convertStringToTimerRecord(String line) {
         String[] fields = line.split(";");
 
         Long id = Long.parseLong(fields[0]);
         String projectName = fields[1];
         Instant startTime = Instant.parse(fields[2]);
-        Instant stopTime = Instant.parse(fields[3]);
-        boolean isRunning = Boolean.parseBoolean(fields[4]);
-        Duration duration = Duration.ofSeconds(Long.parseLong(fields[5]));
+        Instant stopTime;
+        try {
+            stopTime = Instant.parse(fields[3]);
+        } catch (Exception e) {
+            stopTime = null;
+//            e.printStackTrace();
+        }
+        boolean isRunning = Boolean.parseBoolean(fields[5]);
+        Duration duration;
+        try {
+            duration = Duration.ofSeconds(Long.parseLong(fields[4]));
+        } catch (Exception e) {
+            duration = null;
+//            e.printStackTrace();
+        }
 
         return new TimerRecord(id, projectName, startTime, stopTime, isRunning, duration);
     }

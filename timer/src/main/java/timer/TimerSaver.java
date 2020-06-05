@@ -6,23 +6,28 @@ import java.util.List;
 
 public class TimerSaver {
     public void saveToFile(List<TimerRecord> records, String filename) throws IOException {
-        if (records != null && !records.isEmpty()) {
-            FileWriter writer = new FileWriter(filename + ".txt");
-            records.forEach(record -> writeRecordToFile(writer, record));
-            writer.close();
+        try {
+            if (records != null && !records.isEmpty()) {
+                FileWriter writeFile = new FileWriter(filename + ".txt");
+                records.forEach(timeRecord -> writeRecordToFile(writeFile, timeRecord));
+                writeFile.close();
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
         }
 }
 
-    private void writeRecordToFile(FileWriter writer, TimerRecord record) {
+    private void writeRecordToFile(FileWriter writeFile, TimerRecord timeRecord) {
         try {
-            writer.write(getRecordAsString(record));
+            writeFile.write(getRecordAsString(timeRecord));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private String getRecordAsString(TimerRecord record) {
-        return record.getId() + ";" + record.getProjectName() + ";" + record.getStartTime() + ";" +
-                record.getStopTime() + ";" + record.getDuration().getSeconds() + ";" + record.isRunning() + "\n";
+    private String getRecordAsString(TimerRecord timeRecord) {
+        return timeRecord.getId() + ";" + timeRecord.getProjectName() + ";" + timeRecord.getStartTime() + ";" +
+                timeRecord.getStopTime() + ";" + timeRecord.getDuration().getSeconds() + ";" + timeRecord.isRunning() + "\n";
     }
 }

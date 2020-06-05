@@ -1,9 +1,7 @@
 name: Java CI
 
-on: 
-  push:
-    paths:
-      - 'timer/*'
+on: pull_request
+
 
 defaults:
   run:

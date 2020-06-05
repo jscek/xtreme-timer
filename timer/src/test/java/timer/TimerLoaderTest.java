@@ -1,30 +1,29 @@
 package timer;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import timer.TimerLoader;
-import timer.TimerRecord;
 
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Collections;
+
+import static org.assertj.core.api.Assertions.*;
 
 class TimerLoaderTest {
     private final TimerLoader loader = new TimerLoader();
 
     @Test
     void loadFromFileThatDoesNotExist() {
-        Assertions.assertThat(loader.loadFromFile("not_existing_file")).isEqualTo(Collections.emptyList());
+        assertThat(loader.loadFromFile("not_existing_file")).isEqualTo(Collections.emptyList());
     }
 
     @Test
     void loadFromFileWithNullPath() {
-        Assertions.assertThat(loader.loadFromFile(null)).isEqualTo(Collections.emptyList());
+        assertThat(loader.loadFromFile(null)).isEqualTo(Collections.emptyList());
     }
 
     @Test
     void loadFromFileWithEmptyPath() {
-        Assertions.assertThat(loader.loadFromFile("")).isEqualTo(Collections.emptyList());
+        assertThat(loader.loadFromFile("")).isEqualTo(Collections.emptyList());
     }
 
     @Test
@@ -40,8 +39,8 @@ class TimerLoaderTest {
 
         String line = id + ";" + projectName + ";" + startTime + ";" + stopTime + ";" + isRunning + ";" + duration.getSeconds();
 
-        TimerRecord parsedRecord = loader.getStringAsRecord(line);
+        TimerRecord parsedRecord = loader.convertStringToTimerRecord(line);
 
-        Assertions.assertThat(originalRecord).isEqualToComparingFieldByField(parsedRecord);
+        assertThat(originalRecord).isEqualToComparingFieldByField(parsedRecord);
     }
 }
