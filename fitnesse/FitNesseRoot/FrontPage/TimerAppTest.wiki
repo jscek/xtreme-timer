@@ -1,0 +1,18 @@
+!define TEST_SYSTEM {slim}
+!path ..\timer\target\classes\
+
+!|import                |
+|timer.fitnesse.fixtures|
+
+!4 Case: Dodawanie stoperów dla nazwanych projektów
+!|AddTimers              |
+|projectName|timersCount?|
+|proj1      |1           |
+|proj2      |2           |
+
+
+!4 Case: Uruchamianie stoperów
+!|StartTimers            |
+|timerId|start|isRunning?|
+|1      |true |true      |
+|2      |false|false     |

@@ -92,7 +92,7 @@ public class TimerApp {
 		}
 	}
 
-	Optional<TimerRecord> getTimerById(Long id) {
+	public Optional<TimerRecord> getTimerById(Long id) {
 		return timerRecordList.stream().filter(e -> e.getId().equals(id)).findFirst();
 	}
 

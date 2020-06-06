@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20200501</FitNesseVersion>
+  <rootPath>FrontPage.TimerAppTest</rootPath>
+  <result>
+    <counts>
+      <right>0</right>
+      <wrong>2</wrong>
+      <ignores>0</ignores>
+      <exceptions>2</exceptions>
+    </counts>
+    <date>2020-06-06T20:11:48+02:00</date>
+    <runTimeInMillis>250</runTimeInMillis>
+    <content>&lt;br/&gt;&lt;span class="meta"&gt;variable defined: TEST_SYSTEM=slim&lt;/span&gt;
+&lt;br/&gt;&lt;span class="meta"&gt;classpath: C:\Users\jacek\Dev\xtreme-timer\timer\target\classes\&lt;/span&gt;&lt;br/&gt;&lt;span class="meta"&gt;classpath: C:\Users\jacek\Dev\xtreme-timer\fitnesse\fitnesse-standalone.jar&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;&lt;table&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td&gt;import&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor0"&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;fixtures&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;table&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td colspan="2"&gt;&lt;span class="pass"&gt;TimerAppTest&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td&gt;projectName&lt;/td&gt;
+		&lt;td&gt;timers?&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor1"&gt;
+		&lt;td&gt;test &lt;span class="error"&gt;No Method setProjectName[1] in class fixtures.TimerAppTest.
+ Available methods:
+add(java.lang.String) -&amp;gt; void
+equals(java.lang.Object) -&amp;gt; boolean
+getClass() -&amp;gt; class java.lang.Class
+hashCode() -&amp;gt; int
+notify() -&amp;gt; void
+notifyAll() -&amp;gt; void
+timers() -&amp;gt; int
+toString() -&amp;gt; class java.lang.String
+wait() -&amp;gt; void
+wait(long) -&amp;gt; void
+wait(long, int) -&amp;gt; void&lt;/span&gt;&lt;/td&gt;
+		&lt;td&gt;[&lt;span class="diff"&gt;0&lt;/span&gt;] &lt;span class="fail"&gt;expected [&lt;span class="diff"&gt;1&lt;/span&gt;]&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor0"&gt;
+		&lt;td&gt;test2 &lt;span class="error"&gt;No Method setProjectName[1] in class fixtures.TimerAppTest.
+ Available methods:
+add(java.lang.String) -&amp;gt; void
+equals(java.lang.Object) -&amp;gt; boolean
+getClass() -&amp;gt; class java.lang.Class
+hashCode() -&amp;gt; int
+notify() -&amp;gt; void
+notifyAll() -&amp;gt; void
+timers() -&amp;gt; int
+toString() -&amp;gt; class java.lang.String
+wait() -&amp;gt; void
+wait(long) -&amp;gt; void
+wait(long, int) -&amp;gt; void&lt;/span&gt;&lt;/td&gt;
+		&lt;td&gt;[&lt;span class="diff"&gt;0&lt;/span&gt;] &lt;span class="fail"&gt;expected [&lt;span class="diff"&gt;2&lt;/span&gt;]&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+</content>
+    <relativePageName>TimerAppTest</relativePageName>
+    <instructions>
+      <instructionResult>
+        <instruction>{id='import_0_0', instruction='import', path='fixtures'}</instruction>
+        <slimResult>pass(fixtures)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>import_0_0</instructionId>
+          <col>0</col>
+          <row>1</row>
+          <type>ImportExpectation</type>
+          <evaluationMessage>fixtures</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_1_0', instruction='make', instanceName='decisionTable_1', className='TimerAppTest', args=[]}</instruction>
+        <slimResult>pass(TimerAppTest)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_1_0</instructionId>
+          <col>0</col>
+          <row>0</row>
+          <type>ConstructionExpectation</type>
+          <evaluationMessage>TimerAppTest</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_1_4', instruction='call', instanceName='decisionTable_1', methodName='setProjectName', args=[test]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_1_4</instructionId>
+          <type>VoidReturnExpectation</type>
+          <evaluationMessage>No Method setProjectName[1] in class fixtures.TimerAppTest.
+ Available methods:
+add(java.lang.String) -&gt; void
+equals(java.lang.Object) -&gt; boolean
+getClass() -&gt; class java.lang.Class
+hashCode() -&gt; int
+notify() -&gt; void
+notifyAll() -&gt; void
+timers() -&gt; int
+toString() -&gt; class java.lang.String
+wait() -&gt; void
+wait(long) -&gt; void
+wait(long, int) -&gt; void</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_1_6', instruction='call', instanceName='decisionTable_1', methodName='timers', args=[]}</instruction>
+        <slimResult>fail(a=0;e=1)</slimResult>
+        <expectation>
+          <status>fail</status>
+          <instructionId>decisionTable_1_6</instructionId>
+          <col>1</col>
+          <row>2</row>
+          <type>ReturnedValueExpectation</type>
+          <actual>0</actual>
+          <expected>1</expected>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_1_8', instruction='call', instanceName='decisionTable_1', methodName='setProjectName', args=[test2]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_1_8</instructionId>
+          <type>VoidReturnExpectation</type>
+          <evaluationMessage>No Method setProjectName[1] in class fixtures.TimerAppTest.
+ Available methods:
+add(java.lang.String) -&gt; void
+equals(java.lang.Object) -&gt; boolean
+getClass() -&gt; class java.lang.Class
+hashCode() -&gt; int
+notify() -&gt; void
+notifyAll() -&gt; void
+timers() -&gt; int
+toString() -&gt; class java.lang.String
+wait() -&gt; void
+wait(long) -&gt; void
+wait(long, int) -&gt; void</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_1_10', instruction='call', instanceName='decisionTable_1', methodName='timers', args=[]}</instruction>
+        <slimResult>fail(a=0;e=2)</slimResult>
+        <expectation>
+          <status>fail</status>
+          <instructionId>decisionTable_1_10</instructionId>
+          <col>1</col>
+          <row>3</row>
+          <type>ReturnedValueExpectation</type>
+          <actual>0</actual>
+          <expected>2</expected>
+        </expectation>
+      </instructionResult>
+    </instructions>
+  </result>
+  <executionLog>
+    <testSystem>slim:fitnesse.slim.SlimService</testSystem>
+    <command>java -cp C:\Users\jacek\Dev\xtreme-timer\fitnesse\fitnesse-standalone.jar;C:\Users\jacek\Dev\xtreme-timer\timer\target\classes\;C:\Users\jacek\Dev\xtreme-timer\fitnesse\fitnesse-standalone.jar fitnesse.slim.SlimService 1</command>
+    <exitCode>0</exitCode>
+    <stdOut></stdOut>
+    <stdErr></stdErr>
+  </executionLog>
+  <finalCounts>
+    <right>0</right>
+    <wrong>1</wrong>
+    <ignores>0</ignores>
+    <exceptions>0</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>648</totalRunTimeInMillis>
+</testResults>
+
