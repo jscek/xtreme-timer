@@ -46,7 +46,13 @@ public class TimerApp {
 		while (!shouldFinish) {
 			GUI.display(timerRecordList);
 			String[] input = getAndParseInput();
-			actions.perform(this, input);
+			try {
+				actions.perform(this, input);
+			} catch (Exception ex){
+				System.out.println("Invalid command: " + Arrays.toString(input));
+				String[] def = {"Refresh"};
+				actions.perform(this, def);
+			}
 		}
 	}
 
