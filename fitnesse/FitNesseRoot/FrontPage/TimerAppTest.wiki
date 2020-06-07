@@ -9,6 +9,7 @@
 |projectName|timersCount?|
 |proj1      |1           |
 |proj2      |2           |
+|proj3      |3           |
 
 
 !4 Case: Uruchamianie stoperów
@@ -16,3 +17,30 @@
 |timerId|start|isRunning?|
 |1      |true |true      |
 |2      |false|false     |
+|3      |true |true      |
+
+
+!4 Case: Zatrzymywanie stoperów
+!|StopTimers             |
+|timerId|stop |isRunning?|
+|1      |true |false     |
+|2      |false|false     |
+|3      |false|true      |
+
+
+!4 Case: Wznawianie zatrzymanych stoperów
+!|ResumeTimers            |
+|timerId|resume|isRunning?|
+|1      |true  |true      |
+|2      |false |false     |
+|3      |false |true      |
+
+
+!4 Case: Test komend aplikacji dla istniejącego stopera (Start, Stop, Resume, Save)
+!|AppCommands             |
+|timerId|command  |filename  |isRunning?|isSaved?|
+|2      |Start    |saveTest_1|true      |false   |
+|2      |Stop     |saveTest_1|false     |false   |
+|2      |Save     |saveTest_1|false     |true    |
+|2      |Resume   |saveTest_1|true      |true    |
+|2      |Stop     |saveTest_1|false     |true    |

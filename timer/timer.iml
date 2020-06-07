@@ -10,6 +10,18 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.4" level="project" />
+    <orderEntry type="library" name="Maven: de.vandermeer:asciitable:0.3.2" level="project" />
+    <orderEntry type="library" name="Maven: de.vandermeer:ascii-utf-themes:0.0.1" level="project" />
+    <orderEntry type="library" name="Maven: de.vandermeer:skb-interfaces:0.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.antlr:ST4:4.0.8" level="project" />
+    <orderEntry type="library" name="Maven: org.antlr:antlr-runtime:3.5.2" level="project" />
+    <orderEntry type="library" name="Maven: org.antlr:antlr4:4.5.1" level="project" />
+    <orderEntry type="library" name="Maven: de.vandermeer:char-translation:0.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.beryx:text-io:3.4.1" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.8.0-beta4" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: jline:jline:2.14.6" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.beryx:awt-color-factory:1.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.4.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.apiguardian:apiguardian-api:1.0.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-engine:1.4.0" level="project" />
