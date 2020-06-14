@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<suiteResults>
+  <FitNesseVersion>v20200501</FitNesseVersion>
+  <rootPath>RerunLastFailures</rootPath>
+  <pageHistoryReference>
+    <name>FrontPage.TimerAppTest</name>
+    <date>2020-06-14T00:54:17+02:00</date>
+    <pageHistoryLink>FrontPage.TimerAppTest?pageHistory&amp;resultDate=20200614005417</pageHistoryLink>
+    <counts>
+      <right>21</right>
+      <wrong>2</wrong>
+      <ignores>0</ignores>
+      <exceptions>0</exceptions>
+    </counts>
+    <runTimeInMillis>431</runTimeInMillis>
+  </pageHistoryReference>
+  <executionLog>
+    <testSystem>slim:fitnesse.slim.SlimService</testSystem>
+    <command>"C:\Program Files\AdoptOpenJDK\jdk-14.0.1.7-hotspot\\bin\java" -cp C:\Users\domin\OneDrive\Documents\GitHub\nowy\xtreme-timer\fitnesse\fitnesse-standalone.jar;..\timer\target\classes\ fitnesse.slim.SlimService 1</command>
+    <exitCode>1</exitCode>
+    <stdOut></stdOut>
+    <stdErr></stdErr>
+  </executionLog>
+  <finalCounts>
+    <right>0</right>
+    <wrong>1</wrong>
+    <ignores>0</ignores>
+    <exceptions>0</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>1369</totalRunTimeInMillis>
+</suiteResults>
+

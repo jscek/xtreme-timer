@@ -10,6 +10,7 @@
 |proj1      |1           |
 |proj2      |2           |
 |proj3      |3           |
+|proj4      |4			|
 
 
 !4 Case: Uruchamianie stoperów
@@ -39,8 +40,18 @@
 !4 Case: Test komend aplikacji dla istniejącego stopera (Start, Stop, Resume, Save)
 !|AppCommands             |
 |timerId|command  |filename  |isRunning?|isSaved?|
-|2      |Start    |saveTest_1|true      |false   |
-|2      |Stop     |saveTest_1|false     |false   |
+|2      |Start    |saveTest_1|true      |true   |
+|2      |Stop     |saveTest_1|false     |true   |
 |2      |Save     |saveTest_1|false     |true    |
 |2      |Resume   |saveTest_1|true      |true    |
 |2      |Stop     |saveTest_1|false     |true    |
+
+!4 Case: Test komendy ustawiającej limit czasowy stopera (SetLimit)
+!|SetLimit             |
+|timerId|limit  	|hasLimit?| whatLimit?  |
+|2     	|100    	|true	|100 	| 
+|1		|0			|false	|0		|
+|1      |20     	|true	|20 	|
+|3      |0     		|false	|0		|
+|2      |10   		|true	|10		|
+|3      |20     	|true	|20		|
