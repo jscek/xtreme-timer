@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
+import timer.base.Actions;
 import timer.base.TimerApp;
 
 import java.io.File;
@@ -71,5 +72,15 @@ public class TimerAppTest {
 				.isNotEmpty();
 
 		file.delete();
+	}
+
+	@Test
+	public void addTimerWithLongName() {
+		TimerApp timerApp = new TimerApp();
+		Actions actions = new Actions();
+		String command = "Create Extreme programming project";
+		actions.perform(timerApp, command.split(" "));
+		assertThat(timerApp.getTimerById(1L).get().getProjectName()).isEqualTo("Extreme programming project");
+
 	}
 }
