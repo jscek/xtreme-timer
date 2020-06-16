@@ -1,5 +1,6 @@
 package timer.base;
 
+import java.lang.reflect.Array;
 import java.time.Instant;
 import java.io.IOException;
 import java.util.*;
@@ -48,7 +49,7 @@ public class TimerApp {
 			String[] input = getAndParseInput();
 			try {
 				actions.perform(this, input);
-			} catch (Exception ex){
+			} catch (Exception ex) {
 				System.out.println("Invalid command: " + Arrays.toString(input));
 				String[] def = {"Refresh"};
 				actions.perform(this, def);
@@ -73,7 +74,9 @@ public class TimerApp {
 
 	public void addTimer(String[] input) {
 		if (input.length >= 2) {
-			timerRecordList.add(new TimerRecord(getUniqueId(), input[1]));
+			input[0] = "";
+			String projectName = String.join(" ", input).substring(1);
+			timerRecordList.add(new TimerRecord(getUniqueId(), projectName));
 		} else {
 			addTimer();
 		}
