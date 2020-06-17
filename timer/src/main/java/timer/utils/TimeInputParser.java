@@ -12,7 +12,7 @@ public class TimeInputParser {
 		Long second = 0L;
 		Long minute = 0L;
 		Long hours = 0L;
-		Pattern pattern1 = Pattern.compile("^([0-1]?\\d|2[0-3])(?::([0-5]?\\d))?(?::([0-5]?\\d))?$");
+		Pattern pattern1 = Pattern.compile("^([0-9]*?\\d|2[0-3])(?::([0-5]?\\d))?(?::([0-5]?\\d))?$");
 		Pattern pattern2 = Pattern.compile("^(?:\\d+h)?(?:(?!\\n)\\s)?(?:\\d+m?)?(?:(?!\\n)\\s)?(?:\\d+s)?$");
 		if (input.length >= 2) {
 			input[0] = "";
