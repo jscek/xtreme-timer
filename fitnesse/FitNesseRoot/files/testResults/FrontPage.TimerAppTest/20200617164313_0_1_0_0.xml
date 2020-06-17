@@ -1,0 +1,1150 @@
+<?xml version="1.0"?>
+<testResults>
+  <FitNesseVersion>v20200501</FitNesseVersion>
+  <rootPath>FrontPage.TimerAppTest</rootPath>
+  <result>
+    <counts>
+      <right>3</right>
+      <wrong>2</wrong>
+      <ignores>0</ignores>
+      <exceptions>15</exceptions>
+    </counts>
+    <date>2020-06-17T16:43:13+02:00</date>
+    <runTimeInMillis>202</runTimeInMillis>
+    <content>&lt;br/&gt;&lt;span class="meta"&gt;variable defined: TEST_SYSTEM=slim&lt;/span&gt;
+&lt;br/&gt;&lt;span class="meta"&gt;classpath: ..\timer\target\classes\&lt;/span&gt;&lt;br/&gt;&lt;br/&gt;&lt;table&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td&gt;import&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor0"&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;timer.fitnesse.fixtures&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;h4 id="CaseDodawaniestoperwdlanazwanychprojektw"&gt;Case: Dodawanie stoperów dla nazwanych projektów&lt;/h4&gt;
+!|AddTimers              |&lt;br/&gt;|projectName|timersCount?|project?&lt;br/&gt;|proj1      |1           |proj1&lt;br/&gt;&lt;table&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td&gt;proj2 &lt;span class="error"&gt;&lt;strong&gt; proj2: Bad table! DecisionTables should have at least three rows.&lt;/strong&gt;&lt;/span&gt;&lt;/td&gt;
+		&lt;td&gt;2&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td&gt;proj3&lt;/td&gt;
+		&lt;td&gt;3&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;h4 id="CaseUruchamianiestoperw"&gt;Case: Uruchamianie stoperów&lt;/h4&gt;
+&lt;table&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td colspan="3"&gt;&lt;span class="pass"&gt;StartTimers&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td&gt;timerId&lt;/td&gt;
+		&lt;td&gt;start&lt;/td&gt;
+		&lt;td&gt;isRunning?&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor1"&gt;
+		&lt;td&gt;1&lt;/td&gt;
+		&lt;td&gt;true&lt;/td&gt;
+		&lt;td&gt;&lt;table&gt;&lt;tr class="exception closed"&gt;&lt;td&gt; &lt;span class="error"&gt;true&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class="exception-detail closed-detail"&gt;&lt;td&gt;__EXCEPTION__:java.util.NoSuchElementException: No value present
+	at java.util.Optional.get(Optional.java:135) [rt.jar:1.8.0_144]
+	at timer.fitnesse.fixtures.StartTimers.isRunning(StartTimers.java:20) [file:/C:/Users/adropi/Desktop/Personal/xtreme-timer/timer/target/classes/]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) [rt.jar:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) [rt.jar:1.8.0_144]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.methodInvoke(SimpleInteraction.java:322) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.callMethod(SimpleInteraction.java:307) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.invokeMethod(SimpleInteraction.java:290) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.findAndInvoke(SimpleInteraction.java:217) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.acceptOne(SlimService.java:177) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-standalone.jar:20200501]&lt;/td&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor0"&gt;
+		&lt;td&gt;2&lt;/td&gt;
+		&lt;td&gt;false&lt;/td&gt;
+		&lt;td&gt;&lt;table&gt;&lt;tr class="exception closed"&gt;&lt;td&gt; &lt;span class="error"&gt;false&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class="exception-detail closed-detail"&gt;&lt;td&gt;__EXCEPTION__:java.util.NoSuchElementException: No value present
+	at java.util.Optional.get(Optional.java:135) [rt.jar:1.8.0_144]
+	at timer.fitnesse.fixtures.StartTimers.isRunning(StartTimers.java:20) [file:/C:/Users/adropi/Desktop/Personal/xtreme-timer/timer/target/classes/]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) [rt.jar:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) [rt.jar:1.8.0_144]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.methodInvoke(SimpleInteraction.java:322) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.callMethod(SimpleInteraction.java:307) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.invokeMethod(SimpleInteraction.java:290) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.findAndInvoke(SimpleInteraction.java:217) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.acceptOne(SlimService.java:177) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-standalone.jar:20200501]&lt;/td&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor1"&gt;
+		&lt;td&gt;3&lt;/td&gt;
+		&lt;td&gt;true&lt;/td&gt;
+		&lt;td&gt;&lt;table&gt;&lt;tr class="exception closed"&gt;&lt;td&gt; &lt;span class="error"&gt;true&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class="exception-detail closed-detail"&gt;&lt;td&gt;__EXCEPTION__:java.util.NoSuchElementException: No value present
+	at java.util.Optional.get(Optional.java:135) [rt.jar:1.8.0_144]
+	at timer.fitnesse.fixtures.StartTimers.isRunning(StartTimers.java:20) [file:/C:/Users/adropi/Desktop/Personal/xtreme-timer/timer/target/classes/]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) [rt.jar:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) [rt.jar:1.8.0_144]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.methodInvoke(SimpleInteraction.java:322) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.callMethod(SimpleInteraction.java:307) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.invokeMethod(SimpleInteraction.java:290) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.findAndInvoke(SimpleInteraction.java:217) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.acceptOne(SlimService.java:177) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-standalone.jar:20200501]&lt;/td&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;h4 id="CaseZatrzymywaniestoperw"&gt;Case: Zatrzymywanie stoperów&lt;/h4&gt;
+&lt;table&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td colspan="3"&gt;&lt;span class="pass"&gt;StopTimers&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td&gt;timerId&lt;/td&gt;
+		&lt;td&gt;stop&lt;/td&gt;
+		&lt;td&gt;isRunning?&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor1"&gt;
+		&lt;td&gt;1&lt;/td&gt;
+		&lt;td&gt;true&lt;/td&gt;
+		&lt;td&gt;&lt;table&gt;&lt;tr class="exception closed"&gt;&lt;td&gt; &lt;span class="error"&gt;false&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class="exception-detail closed-detail"&gt;&lt;td&gt;__EXCEPTION__:java.util.NoSuchElementException: No value present
+	at java.util.Optional.get(Optional.java:135) [rt.jar:1.8.0_144]
+	at timer.fitnesse.fixtures.StopTimers.isRunning(StopTimers.java:20) [file:/C:/Users/adropi/Desktop/Personal/xtreme-timer/timer/target/classes/]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) [rt.jar:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) [rt.jar:1.8.0_144]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.methodInvoke(SimpleInteraction.java:322) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.callMethod(SimpleInteraction.java:307) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.invokeMethod(SimpleInteraction.java:290) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.findAndInvoke(SimpleInteraction.java:217) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.acceptOne(SlimService.java:177) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-standalone.jar:20200501]&lt;/td&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor0"&gt;
+		&lt;td&gt;2&lt;/td&gt;
+		&lt;td&gt;false&lt;/td&gt;
+		&lt;td&gt;&lt;table&gt;&lt;tr class="exception closed"&gt;&lt;td&gt; &lt;span class="error"&gt;false&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class="exception-detail closed-detail"&gt;&lt;td&gt;__EXCEPTION__:java.util.NoSuchElementException: No value present
+	at java.util.Optional.get(Optional.java:135) [rt.jar:1.8.0_144]
+	at timer.fitnesse.fixtures.StopTimers.isRunning(StopTimers.java:20) [file:/C:/Users/adropi/Desktop/Personal/xtreme-timer/timer/target/classes/]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) [rt.jar:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) [rt.jar:1.8.0_144]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.methodInvoke(SimpleInteraction.java:322) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.callMethod(SimpleInteraction.java:307) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.invokeMethod(SimpleInteraction.java:290) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.findAndInvoke(SimpleInteraction.java:217) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.acceptOne(SlimService.java:177) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-standalone.jar:20200501]&lt;/td&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor1"&gt;
+		&lt;td&gt;3&lt;/td&gt;
+		&lt;td&gt;false&lt;/td&gt;
+		&lt;td&gt;&lt;table&gt;&lt;tr class="exception closed"&gt;&lt;td&gt; &lt;span class="error"&gt;true&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class="exception-detail closed-detail"&gt;&lt;td&gt;__EXCEPTION__:java.util.NoSuchElementException: No value present
+	at java.util.Optional.get(Optional.java:135) [rt.jar:1.8.0_144]
+	at timer.fitnesse.fixtures.StopTimers.isRunning(StopTimers.java:20) [file:/C:/Users/adropi/Desktop/Personal/xtreme-timer/timer/target/classes/]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) [rt.jar:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) [rt.jar:1.8.0_144]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.methodInvoke(SimpleInteraction.java:322) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.callMethod(SimpleInteraction.java:307) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.invokeMethod(SimpleInteraction.java:290) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.findAndInvoke(SimpleInteraction.java:217) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.acceptOne(SlimService.java:177) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-standalone.jar:20200501]&lt;/td&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;h4 id="CaseWznawianiezatrzymanychstoperw"&gt;Case: Wznawianie zatrzymanych stoperów&lt;/h4&gt;
+&lt;table&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td colspan="3"&gt;&lt;span class="pass"&gt;ResumeTimers&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td&gt;timerId&lt;/td&gt;
+		&lt;td&gt;resume&lt;/td&gt;
+		&lt;td&gt;isRunning?&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor1"&gt;
+		&lt;td&gt;1&lt;/td&gt;
+		&lt;td&gt;true&lt;/td&gt;
+		&lt;td&gt;&lt;table&gt;&lt;tr class="exception closed"&gt;&lt;td&gt; &lt;span class="error"&gt;true&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class="exception-detail closed-detail"&gt;&lt;td&gt;__EXCEPTION__:java.util.NoSuchElementException: No value present
+	at java.util.Optional.get(Optional.java:135) [rt.jar:1.8.0_144]
+	at timer.fitnesse.fixtures.ResumeTimers.isRunning(ResumeTimers.java:20) [file:/C:/Users/adropi/Desktop/Personal/xtreme-timer/timer/target/classes/]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) [rt.jar:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) [rt.jar:1.8.0_144]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.methodInvoke(SimpleInteraction.java:322) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.callMethod(SimpleInteraction.java:307) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.invokeMethod(SimpleInteraction.java:290) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.findAndInvoke(SimpleInteraction.java:217) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.acceptOne(SlimService.java:177) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-standalone.jar:20200501]&lt;/td&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor0"&gt;
+		&lt;td&gt;2&lt;/td&gt;
+		&lt;td&gt;false&lt;/td&gt;
+		&lt;td&gt;&lt;table&gt;&lt;tr class="exception closed"&gt;&lt;td&gt; &lt;span class="error"&gt;false&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class="exception-detail closed-detail"&gt;&lt;td&gt;__EXCEPTION__:java.util.NoSuchElementException: No value present
+	at java.util.Optional.get(Optional.java:135) [rt.jar:1.8.0_144]
+	at timer.fitnesse.fixtures.ResumeTimers.isRunning(ResumeTimers.java:20) [file:/C:/Users/adropi/Desktop/Personal/xtreme-timer/timer/target/classes/]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) [rt.jar:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) [rt.jar:1.8.0_144]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.methodInvoke(SimpleInteraction.java:322) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.callMethod(SimpleInteraction.java:307) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.invokeMethod(SimpleInteraction.java:290) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.findAndInvoke(SimpleInteraction.java:217) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.acceptOne(SlimService.java:177) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-standalone.jar:20200501]&lt;/td&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor1"&gt;
+		&lt;td&gt;3&lt;/td&gt;
+		&lt;td&gt;false&lt;/td&gt;
+		&lt;td&gt;&lt;table&gt;&lt;tr class="exception closed"&gt;&lt;td&gt; &lt;span class="error"&gt;true&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class="exception-detail closed-detail"&gt;&lt;td&gt;__EXCEPTION__:java.util.NoSuchElementException: No value present
+	at java.util.Optional.get(Optional.java:135) [rt.jar:1.8.0_144]
+	at timer.fitnesse.fixtures.ResumeTimers.isRunning(ResumeTimers.java:20) [file:/C:/Users/adropi/Desktop/Personal/xtreme-timer/timer/target/classes/]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) [rt.jar:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) [rt.jar:1.8.0_144]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.methodInvoke(SimpleInteraction.java:322) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.callMethod(SimpleInteraction.java:307) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.invokeMethod(SimpleInteraction.java:290) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.findAndInvoke(SimpleInteraction.java:217) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.acceptOne(SlimService.java:177) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-standalone.jar:20200501]&lt;/td&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+&lt;br/&gt;&lt;br/&gt;&lt;h4 id="CaseTestkomendaplikacjidlaistniejcegostoperaStartStopResumeSave"&gt;Case: Test komend aplikacji dla istniejącego stopera (Start, Stop, Resume, Save)&lt;/h4&gt;
+&lt;table&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td colspan="5"&gt;&lt;span class="pass"&gt;AppCommands&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowTitle"&gt;
+		&lt;td&gt;timerId&lt;/td&gt;
+		&lt;td&gt;command&lt;/td&gt;
+		&lt;td&gt;filename&lt;/td&gt;
+		&lt;td&gt;isRunning?&lt;/td&gt;
+		&lt;td&gt;isSaved?&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor1"&gt;
+		&lt;td&gt;2&lt;/td&gt;
+		&lt;td&gt;Start&lt;/td&gt;
+		&lt;td&gt;saveTest_1&lt;/td&gt;
+		&lt;td&gt;&lt;table&gt;&lt;tr class="exception closed"&gt;&lt;td&gt; &lt;span class="error"&gt;true&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class="exception-detail closed-detail"&gt;&lt;td&gt;__EXCEPTION__:java.util.NoSuchElementException: No value present
+	at java.util.Optional.get(Optional.java:135) [rt.jar:1.8.0_144]
+	at timer.fitnesse.fixtures.AppCommands.isRunning(AppCommands.java:39) [file:/C:/Users/adropi/Desktop/Personal/xtreme-timer/timer/target/classes/]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) [rt.jar:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) [rt.jar:1.8.0_144]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.methodInvoke(SimpleInteraction.java:322) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.callMethod(SimpleInteraction.java:307) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.invokeMethod(SimpleInteraction.java:290) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.findAndInvoke(SimpleInteraction.java:217) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.acceptOne(SlimService.java:177) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-standalone.jar:20200501]&lt;/td&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;
+		&lt;td&gt;[&lt;span class="diff"&gt;tru&lt;/span&gt;e] &lt;span class="fail"&gt;expected [&lt;span class="diff"&gt;fals&lt;/span&gt;e]&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor0"&gt;
+		&lt;td&gt;2&lt;/td&gt;
+		&lt;td&gt;Stop&lt;/td&gt;
+		&lt;td&gt;saveTest_1&lt;/td&gt;
+		&lt;td&gt;&lt;table&gt;&lt;tr class="exception closed"&gt;&lt;td&gt; &lt;span class="error"&gt;false&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class="exception-detail closed-detail"&gt;&lt;td&gt;__EXCEPTION__:java.util.NoSuchElementException: No value present
+	at java.util.Optional.get(Optional.java:135) [rt.jar:1.8.0_144]
+	at timer.fitnesse.fixtures.AppCommands.isRunning(AppCommands.java:39) [file:/C:/Users/adropi/Desktop/Personal/xtreme-timer/timer/target/classes/]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) [rt.jar:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) [rt.jar:1.8.0_144]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.methodInvoke(SimpleInteraction.java:322) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.callMethod(SimpleInteraction.java:307) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.invokeMethod(SimpleInteraction.java:290) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.findAndInvoke(SimpleInteraction.java:217) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.acceptOne(SlimService.java:177) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-standalone.jar:20200501]&lt;/td&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;
+		&lt;td&gt;[&lt;span class="diff"&gt;tru&lt;/span&gt;e] &lt;span class="fail"&gt;expected [&lt;span class="diff"&gt;fals&lt;/span&gt;e]&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor1"&gt;
+		&lt;td&gt;2&lt;/td&gt;
+		&lt;td&gt;Save&lt;/td&gt;
+		&lt;td&gt;saveTest_1&lt;/td&gt;
+		&lt;td&gt;&lt;table&gt;&lt;tr class="exception closed"&gt;&lt;td&gt; &lt;span class="error"&gt;false&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class="exception-detail closed-detail"&gt;&lt;td&gt;__EXCEPTION__:java.util.NoSuchElementException: No value present
+	at java.util.Optional.get(Optional.java:135) [rt.jar:1.8.0_144]
+	at timer.fitnesse.fixtures.AppCommands.isRunning(AppCommands.java:39) [file:/C:/Users/adropi/Desktop/Personal/xtreme-timer/timer/target/classes/]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) [rt.jar:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) [rt.jar:1.8.0_144]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.methodInvoke(SimpleInteraction.java:322) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.callMethod(SimpleInteraction.java:307) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.invokeMethod(SimpleInteraction.java:290) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.findAndInvoke(SimpleInteraction.java:217) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.acceptOne(SlimService.java:177) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-standalone.jar:20200501]&lt;/td&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;true&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor0"&gt;
+		&lt;td&gt;2&lt;/td&gt;
+		&lt;td&gt;Resume&lt;/td&gt;
+		&lt;td&gt;saveTest_1&lt;/td&gt;
+		&lt;td&gt;&lt;table&gt;&lt;tr class="exception closed"&gt;&lt;td&gt; &lt;span class="error"&gt;true&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class="exception-detail closed-detail"&gt;&lt;td&gt;__EXCEPTION__:java.util.NoSuchElementException: No value present
+	at java.util.Optional.get(Optional.java:135) [rt.jar:1.8.0_144]
+	at timer.fitnesse.fixtures.AppCommands.isRunning(AppCommands.java:39) [file:/C:/Users/adropi/Desktop/Personal/xtreme-timer/timer/target/classes/]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) [rt.jar:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) [rt.jar:1.8.0_144]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.methodInvoke(SimpleInteraction.java:322) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.callMethod(SimpleInteraction.java:307) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.invokeMethod(SimpleInteraction.java:290) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.findAndInvoke(SimpleInteraction.java:217) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.acceptOne(SlimService.java:177) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-standalone.jar:20200501]&lt;/td&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;true&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr class="slimRowColor1"&gt;
+		&lt;td&gt;2&lt;/td&gt;
+		&lt;td&gt;Stop&lt;/td&gt;
+		&lt;td&gt;saveTest_1&lt;/td&gt;
+		&lt;td&gt;&lt;table&gt;&lt;tr class="exception closed"&gt;&lt;td&gt; &lt;span class="error"&gt;false&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr class="exception-detail closed-detail"&gt;&lt;td&gt;__EXCEPTION__:java.util.NoSuchElementException: No value present
+	at java.util.Optional.get(Optional.java:135) [rt.jar:1.8.0_144]
+	at timer.fitnesse.fixtures.AppCommands.isRunning(AppCommands.java:39) [file:/C:/Users/adropi/Desktop/Personal/xtreme-timer/timer/target/classes/]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.8.0_144]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) [rt.jar:1.8.0_144]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.8.0_144]
+	at java.lang.reflect.Method.invoke(Method.java:498) [rt.jar:1.8.0_144]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.methodInvoke(SimpleInteraction.java:322) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.callMethod(SimpleInteraction.java:307) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.invokeMethod(SimpleInteraction.java:290) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.fixtureInteraction.SimpleInteraction.findAndInvoke(SimpleInteraction.java:217) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.MethodExecutor.findAndInvoke(MethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.FixtureMethodExecutor.execute(FixtureMethodExecutor.java:18) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.getMethodExecutionResult(StatementExecutor.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.StatementExecutor.call(StatementExecutor.java:112) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.CallAndOptionalAssignInstruction.executeInternal(CallAndOptionalAssignInstruction.java:30) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.instructions.Instruction.execute(Instruction.java:29) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatement(ListExecutor.java:49) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor$Executive.executeStatements(ListExecutor.java:43) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.ListExecutor.execute(ListExecutor.java:85) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.executeInstructions(SlimServer.java:82) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.processOneSetOfInstructions(SlimServer.java:75) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.tryProcessInstructions(SlimServer.java:62) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimServer.serve(SlimServer.java:47) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.handle(SlimService.java:169) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.acceptOne(SlimService.java:177) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.accept(SlimService.java:139) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.startWithFactory(SlimService.java:92) [fitnesse-standalone.jar:20200501]
+	at fitnesse.slim.SlimService.main(SlimService.java:57) [fitnesse-standalone.jar:20200501]&lt;/td&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;
+		&lt;td&gt;&lt;span class="pass"&gt;true&lt;/span&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+&lt;/table&gt;
+</content>
+    <relativePageName>TimerAppTest</relativePageName>
+    <instructions>
+      <instructionResult>
+        <instruction>{id='import_0_0', instruction='import', path='timer.fitnesse.fixtures'}</instruction>
+        <slimResult>pass(timer.fitnesse.fixtures)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>import_0_0</instructionId>
+          <col>0</col>
+          <row>1</row>
+          <type>ImportExpectation</type>
+          <evaluationMessage>timer.fitnesse.fixtures</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_2_0', instruction='make', instanceName='decisionTable_2', className='StartTimers', args=[]}</instruction>
+        <slimResult>pass(StartTimers)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_2_0</instructionId>
+          <col>0</col>
+          <row>0</row>
+          <type>ConstructionExpectation</type>
+          <evaluationMessage>StartTimers</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_2_4', instruction='call', instanceName='decisionTable_2', methodName='setTimerId', args=[1]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_2_4</instructionId>
+          <col>0</col>
+          <row>2</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_2_5', instruction='call', instanceName='decisionTable_2', methodName='setStart', args=[true]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_2_5</instructionId>
+          <col>1</col>
+          <row>2</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_2_7', instruction='call', instanceName='decisionTable_2', methodName='isRunning', args=[]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_2_7</instructionId>
+          <type>ReturnedValueExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_2_9', instruction='call', instanceName='decisionTable_2', methodName='setTimerId', args=[2]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_2_9</instructionId>
+          <col>0</col>
+          <row>3</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_2_10', instruction='call', instanceName='decisionTable_2', methodName='setStart', args=[false]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_2_10</instructionId>
+          <col>1</col>
+          <row>3</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_2_12', instruction='call', instanceName='decisionTable_2', methodName='isRunning', args=[]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_2_12</instructionId>
+          <type>ReturnedValueExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_2_14', instruction='call', instanceName='decisionTable_2', methodName='setTimerId', args=[3]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_2_14</instructionId>
+          <col>0</col>
+          <row>4</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_2_15', instruction='call', instanceName='decisionTable_2', methodName='setStart', args=[true]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_2_15</instructionId>
+          <col>1</col>
+          <row>4</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_2_17', instruction='call', instanceName='decisionTable_2', methodName='isRunning', args=[]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_2_17</instructionId>
+          <type>ReturnedValueExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_3_0', instruction='make', instanceName='decisionTable_3', className='StopTimers', args=[]}</instruction>
+        <slimResult>pass(StopTimers)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_3_0</instructionId>
+          <col>0</col>
+          <row>0</row>
+          <type>ConstructionExpectation</type>
+          <evaluationMessage>StopTimers</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_3_4', instruction='call', instanceName='decisionTable_3', methodName='setTimerId', args=[1]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_3_4</instructionId>
+          <col>0</col>
+          <row>2</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_3_5', instruction='call', instanceName='decisionTable_3', methodName='setStop', args=[true]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_3_5</instructionId>
+          <col>1</col>
+          <row>2</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_3_7', instruction='call', instanceName='decisionTable_3', methodName='isRunning', args=[]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_3_7</instructionId>
+          <type>ReturnedValueExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_3_9', instruction='call', instanceName='decisionTable_3', methodName='setTimerId', args=[2]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_3_9</instructionId>
+          <col>0</col>
+          <row>3</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_3_10', instruction='call', instanceName='decisionTable_3', methodName='setStop', args=[false]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_3_10</instructionId>
+          <col>1</col>
+          <row>3</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_3_12', instruction='call', instanceName='decisionTable_3', methodName='isRunning', args=[]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_3_12</instructionId>
+          <type>ReturnedValueExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_3_14', instruction='call', instanceName='decisionTable_3', methodName='setTimerId', args=[3]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_3_14</instructionId>
+          <col>0</col>
+          <row>4</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_3_15', instruction='call', instanceName='decisionTable_3', methodName='setStop', args=[false]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_3_15</instructionId>
+          <col>1</col>
+          <row>4</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_3_17', instruction='call', instanceName='decisionTable_3', methodName='isRunning', args=[]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_3_17</instructionId>
+          <type>ReturnedValueExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_4_0', instruction='make', instanceName='decisionTable_4', className='ResumeTimers', args=[]}</instruction>
+        <slimResult>pass(ResumeTimers)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_4_0</instructionId>
+          <col>0</col>
+          <row>0</row>
+          <type>ConstructionExpectation</type>
+          <evaluationMessage>ResumeTimers</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_4_4', instruction='call', instanceName='decisionTable_4', methodName='setTimerId', args=[1]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_4_4</instructionId>
+          <col>0</col>
+          <row>2</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_4_5', instruction='call', instanceName='decisionTable_4', methodName='setResume', args=[true]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_4_5</instructionId>
+          <col>1</col>
+          <row>2</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_4_7', instruction='call', instanceName='decisionTable_4', methodName='isRunning', args=[]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_4_7</instructionId>
+          <type>ReturnedValueExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_4_9', instruction='call', instanceName='decisionTable_4', methodName='setTimerId', args=[2]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_4_9</instructionId>
+          <col>0</col>
+          <row>3</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_4_10', instruction='call', instanceName='decisionTable_4', methodName='setResume', args=[false]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_4_10</instructionId>
+          <col>1</col>
+          <row>3</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_4_12', instruction='call', instanceName='decisionTable_4', methodName='isRunning', args=[]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_4_12</instructionId>
+          <type>ReturnedValueExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_4_14', instruction='call', instanceName='decisionTable_4', methodName='setTimerId', args=[3]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_4_14</instructionId>
+          <col>0</col>
+          <row>4</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_4_15', instruction='call', instanceName='decisionTable_4', methodName='setResume', args=[false]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_4_15</instructionId>
+          <col>1</col>
+          <row>4</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_4_17', instruction='call', instanceName='decisionTable_4', methodName='isRunning', args=[]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_4_17</instructionId>
+          <type>ReturnedValueExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_0', instruction='make', instanceName='decisionTable_5', className='AppCommands', args=[]}</instruction>
+        <slimResult>pass(AppCommands)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_5_0</instructionId>
+          <col>0</col>
+          <row>0</row>
+          <type>ConstructionExpectation</type>
+          <evaluationMessage>AppCommands</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_4', instruction='call', instanceName='decisionTable_5', methodName='setTimerId', args=[2]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_5_4</instructionId>
+          <col>0</col>
+          <row>2</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_5', instruction='call', instanceName='decisionTable_5', methodName='setCommand', args=[Start]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_5_5</instructionId>
+          <col>1</col>
+          <row>2</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_6', instruction='call', instanceName='decisionTable_5', methodName='setFilename', args=[saveTest_1]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_5_6</instructionId>
+          <col>2</col>
+          <row>2</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_8', instruction='call', instanceName='decisionTable_5', methodName='isRunning', args=[]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_5_8</instructionId>
+          <type>ReturnedValueExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_9', instruction='call', instanceName='decisionTable_5', methodName='isSaved', args=[]}</instruction>
+        <slimResult>fail(a=true;e=false)</slimResult>
+        <expectation>
+          <status>fail</status>
+          <instructionId>decisionTable_5_9</instructionId>
+          <col>4</col>
+          <row>2</row>
+          <type>ReturnedValueExpectation</type>
+          <actual>true</actual>
+          <expected>false</expected>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_11', instruction='call', instanceName='decisionTable_5', methodName='setTimerId', args=[2]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_5_11</instructionId>
+          <col>0</col>
+          <row>3</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_12', instruction='call', instanceName='decisionTable_5', methodName='setCommand', args=[Stop]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_5_12</instructionId>
+          <col>1</col>
+          <row>3</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_13', instruction='call', instanceName='decisionTable_5', methodName='setFilename', args=[saveTest_1]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_5_13</instructionId>
+          <col>2</col>
+          <row>3</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_15', instruction='call', instanceName='decisionTable_5', methodName='isRunning', args=[]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_5_15</instructionId>
+          <type>ReturnedValueExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_16', instruction='call', instanceName='decisionTable_5', methodName='isSaved', args=[]}</instruction>
+        <slimResult>fail(a=true;e=false)</slimResult>
+        <expectation>
+          <status>fail</status>
+          <instructionId>decisionTable_5_16</instructionId>
+          <col>4</col>
+          <row>3</row>
+          <type>ReturnedValueExpectation</type>
+          <actual>true</actual>
+          <expected>false</expected>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_18', instruction='call', instanceName='decisionTable_5', methodName='setTimerId', args=[2]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_5_18</instructionId>
+          <col>0</col>
+          <row>4</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_19', instruction='call', instanceName='decisionTable_5', methodName='setCommand', args=[Save]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_5_19</instructionId>
+          <col>1</col>
+          <row>4</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_20', instruction='call', instanceName='decisionTable_5', methodName='setFilename', args=[saveTest_1]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_5_20</instructionId>
+          <col>2</col>
+          <row>4</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_22', instruction='call', instanceName='decisionTable_5', methodName='isRunning', args=[]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_5_22</instructionId>
+          <type>ReturnedValueExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_23', instruction='call', instanceName='decisionTable_5', methodName='isSaved', args=[]}</instruction>
+        <slimResult>pass(true)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_5_23</instructionId>
+          <col>4</col>
+          <row>4</row>
+          <type>ReturnedValueExpectation</type>
+          <evaluationMessage>true</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_25', instruction='call', instanceName='decisionTable_5', methodName='setTimerId', args=[2]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_5_25</instructionId>
+          <col>0</col>
+          <row>5</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_26', instruction='call', instanceName='decisionTable_5', methodName='setCommand', args=[Resume]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_5_26</instructionId>
+          <col>1</col>
+          <row>5</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_27', instruction='call', instanceName='decisionTable_5', methodName='setFilename', args=[saveTest_1]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_5_27</instructionId>
+          <col>2</col>
+          <row>5</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_29', instruction='call', instanceName='decisionTable_5', methodName='isRunning', args=[]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_5_29</instructionId>
+          <type>ReturnedValueExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_30', instruction='call', instanceName='decisionTable_5', methodName='isSaved', args=[]}</instruction>
+        <slimResult>pass(true)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_5_30</instructionId>
+          <col>4</col>
+          <row>5</row>
+          <type>ReturnedValueExpectation</type>
+          <evaluationMessage>true</evaluationMessage>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_32', instruction='call', instanceName='decisionTable_5', methodName='setTimerId', args=[2]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_5_32</instructionId>
+          <col>0</col>
+          <row>6</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_33', instruction='call', instanceName='decisionTable_5', methodName='setCommand', args=[Stop]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_5_33</instructionId>
+          <col>1</col>
+          <row>6</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_34', instruction='call', instanceName='decisionTable_5', methodName='setFilename', args=[saveTest_1]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <instructionId>decisionTable_5_34</instructionId>
+          <col>2</col>
+          <row>6</row>
+          <type>VoidReturnExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_36', instruction='call', instanceName='decisionTable_5', methodName='isRunning', args=[]}</instruction>
+        <slimResult></slimResult>
+        <expectation>
+          <status>error</status>
+          <instructionId>decisionTable_5_36</instructionId>
+          <type>ReturnedValueExpectation</type>
+        </expectation>
+      </instructionResult>
+      <instructionResult>
+        <instruction>{id='decisionTable_5_37', instruction='call', instanceName='decisionTable_5', methodName='isSaved', args=[]}</instruction>
+        <slimResult>pass(true)</slimResult>
+        <expectation>
+          <status>pass</status>
+          <instructionId>decisionTable_5_37</instructionId>
+          <col>4</col>
+          <row>6</row>
+          <type>ReturnedValueExpectation</type>
+          <evaluationMessage>true</evaluationMessage>
+        </expectation>
+      </instructionResult>
+    </instructions>
+  </result>
+  <executionLog>
+    <testSystem>slim:fitnesse.slim.SlimService</testSystem>
+    <command>D:\Dev\Programs\Java\jdk-8u144-64bit\bin\java -cp C:\Users\adropi\Desktop\Personal\xtreme-timer\fitnesse\fitnesse-standalone.jar;..\timer\target\classes\ fitnesse.slim.SlimService 1</command>
+    <exitCode>0</exitCode>
+    <stdOut></stdOut>
+    <stdErr></stdErr>
+  </executionLog>
+  <finalCounts>
+    <right>0</right>
+    <wrong>1</wrong>
+    <ignores>0</ignores>
+    <exceptions>0</exceptions>
+  </finalCounts>
+  <totalRunTimeInMillis>527</totalRunTimeInMillis>
+</testResults>
+

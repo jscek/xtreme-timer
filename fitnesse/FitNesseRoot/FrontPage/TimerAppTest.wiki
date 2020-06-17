@@ -12,6 +12,14 @@
 |proj3      |3           |
 
 
+!4 Case: Dodawanie róznych nazw projektów
+!|AddTimerNames         |                       
+|projectName			|projectName?          	|
+|proj1      			|proj1      			|
+|Projekt z PE      		|Projekt z PE           |
+|cwiczenia z "PE"       |cwiczenia z "PE"      	|
+
+
 !4 Case: Uruchamianie stoperów
 !|StartTimers            |
 |timerId|start|isRunning?|
