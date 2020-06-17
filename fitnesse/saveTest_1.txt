@@ -1,6 +1,13 @@
-1;proj1;2020-06-17T15:09:36.888Z;2020-06-17T15:09:36.873Z;true;0
-2;proj2;2020-06-17T15:09:36.901Z;2020-06-17T15:09:36.902Z;false;0
-3;proj3;2020-06-17T15:09:36.857Z;null;true;0
+1;proj1;2020-06-17T18:02:40.727Z;2020-06-17T18:02:40.720Z;true;0
+2;proj2;2020-06-17T18:02:40.736Z;2020-06-17T18:02:40.737Z;false;0
+3;proj3;2020-06-17T18:02:40.713Z;null;true;0
 4;proj1;null;null;false;0
 5;Projekt z PE;null;null;false;0
 6;cwiczenia z "PE";null;null;false;0
+7;default;null;null;false;0
+8;default;null;null;false;0
+9;default;null;null;false;0
+10;default;null;null;false;0
+11;default;null;null;false;0
+12;default;null;null;false;0
+13;default;null;null;false;0
