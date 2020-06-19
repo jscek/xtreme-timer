@@ -19,7 +19,7 @@ public class ReportSender {
 
         String host = propertiesReader.getProperty("host", "smtp.wp.pl");
         final String user = propertiesReader.getProperty("user", "extremetimerPE2020@wp.pl");
-        final String password = propertiesReader.getProperty("password", "PErules1");
+        final String password = propertiesReader.getProperty("password", "PErules12");
 
         if (receiver == null) {
             receiver = propertiesReader.getProperty("receiver", "extremetimerPE2020@wp.pl");
@@ -33,10 +33,9 @@ public class ReportSender {
         //Compose the message
         try {
             MimeMessageBuilder messageBuilder = new MimeMessageBuilder(session, user, receiver);
-            messageBuilder
-                    .setMailSubject(mailSubject)
-                    .setMailText(mailText)
-                    .setAttachmentSource(attachmentSource);
+            messageBuilder.setMailSubject(mailSubject);
+            messageBuilder.setMailText(mailText);
+            messageBuilder.setAttachmentSource(attachmentSource);
             MimeMessage message = messageBuilder.build();
 
             //send the message
