@@ -1,12 +1,12 @@
 package timer.base;
 
-import java.lang.reflect.Array;
 import java.time.Instant;
 import java.io.IOException;
 import java.util.*;
 import java.time.Duration;
 
 import timer.GUI.GUI;
+import timer.actions.*;
 import timer.enums.NotifyMode;
 import timer.notification.NotificationGUI;
 import timer.notification.NotificationGUIInterface;
@@ -24,8 +24,8 @@ public class TimerApp {
 	private final Scanner scanner;
 	private final TimerReport timerReport;
 	private final NotificationGUIInterface notificationGUI;
+	public Actions actionChain;
 
-	private final Actions actions;
 	private final GUI GUI;
 
 	public TimerApp() {
@@ -38,8 +38,28 @@ public class TimerApp {
 		timerReport = new TimerReport();
 		shouldFinish = false;
 		notificationGUI = new NotificationGUI();
-		actions = new Actions();
+		actionChain = getActionsChain();
 		GUI = new GUI();
+	}
+
+	private Actions getActionsChain() {
+
+		List<Actions> actionsList = new ArrayList<>();
+		Actions create = new Create();
+
+		actionsList.add(create);
+		actionsList.add(new Start());
+		actionsList.add(new Stop());
+		actionsList.add(new Read());
+		actionsList.add(new Quit());
+		actionsList.add(new Refresh());
+		actionsList.add(new Report());
+		actionsList.add(new Resume());
+		actionsList.add(new Save());
+		actionsList.add(new SendEmail());
+		actionsList.add(new SetLimit());
+
+		return  create.chainActions(actionsList);
 	}
 
 	public void start() {
@@ -48,11 +68,10 @@ public class TimerApp {
 			GUI.display(timerRecordList);
 			String[] input = getAndParseInput();
 			try {
-				actions.perform(this, input);
+				actionChain.exec(this, input );
 			} catch (Exception ex) {
 				System.out.println("Invalid command: " + Arrays.toString(input));
 				String[] def = {"Refresh"};
-				actions.perform(this, def);
 			}
 		}
 	}
