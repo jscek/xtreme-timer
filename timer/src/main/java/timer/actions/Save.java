@@ -6,6 +6,7 @@ public class Save extends Actions {
 
     public Save() {
         this.action = this.getClass().getSimpleName().toLowerCase();
+        this.help = "Save {filename}";
     }
 
     @Override

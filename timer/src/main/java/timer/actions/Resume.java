@@ -6,6 +6,7 @@ public class Resume extends Actions {
 
     public Resume() {
         this.action = this.getClass().getSimpleName().toLowerCase();
+        this.help = "Resume";
     }
 
     @Override

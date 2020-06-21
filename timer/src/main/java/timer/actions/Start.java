@@ -6,6 +6,7 @@ public class Start extends Actions {
 
     public Start() {
         this.action = this.getClass().getSimpleName().toLowerCase();
+        this.help = "Start {id}";
     }
 
     @Override

@@ -115,7 +115,7 @@ public class TimerRecord {
         else
             stopTime=this.stopTime;
 
-        return this.startTime.compareTo(start) > 0
-                && stopTime.compareTo(stop) < 0;
+        return this.startTime.compareTo(start) >= 0
+                && stopTime.compareTo(stop) <= 0;
     }
 }

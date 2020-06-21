@@ -39,17 +39,21 @@ class CSVReportTest {
 
     @Test
     void checkReportLineCount() throws IOException, URISyntaxException {
+        Instant start = Instant.now();
         assertThat(app.createReport(null, null, "default"));
         assertEquals( 4,countCsvLines());
-        Instant start = Instant.now();
         long s = new Date().getTime();
         while (new Date().getTime() - s < 2000L) {        }
-        Instant stop = Instant.now();
+
         app.addTimer();
         app.startTimer((long) 4);
-        assertThat(app.createReport(start, stop, "default"));
-        assertEquals(countCsvLines(), 2);
+        app.stopTimer((long) 4);
+        s = new Date().getTime();
+        while (new Date().getTime() - s < 2000L) {        }
 
+        Instant stop = Instant.now();
+        assertThat(app.createReport(start, stop, "default"));
+        assertEquals(2, countCsvLines());
     }
 
     private int countCsvLines() throws URISyntaxException, IOException {
