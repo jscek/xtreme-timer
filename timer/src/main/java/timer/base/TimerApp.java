@@ -15,7 +15,7 @@ import timer.report.CSVReport;
 import timer.report.TimerReport;
 import timer.utils.PropertiesReader;
 
-public class TimerApp implements BasicTimer {
+public class TimerApp implements BasicTimer, TimerPersistence {
 	private List<TimerRecord> timerRecordList;
 	public boolean shouldFinish;
 
