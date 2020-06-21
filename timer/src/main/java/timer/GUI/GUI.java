@@ -22,8 +22,10 @@ public class GUI extends TimerGUI {
         notificationGUI.showNotification(NotifyMode.INFO, "Timer application", "Application has started.");
         TimersGUI timersGUI = new TimersGUI();
         timersGUI.display(timerRecordList);
-        System.out.println("//////////Command///////////");
-        System.out.println("Create {project}\t\tStart {id}\t\tStop {id}\t\tResume {id}\t\tSetLimit {id} {duration[s]}\t\tSave {filename}\t\tRead {filename}\t\tReport {start} {stop}\t\tSendEmail {receiver} {\"subject\"} {\"text\"} {reportFile<.csv>}\t\tRefresh\t\tQuit");
+        System.out.println("\n\nAvailable Commands:\n");
+        System.out.println("Create {project}\t\tStart {id}\t\tStop {id}\t\tResume {id}\t\tSave {filename}\t\tRead {filename}\t\tRefresh\t\tQuit\t\t");
+        System.out.println("Report {from:yyyy-mm-dd} {to:yyyy-mm-dd}\t\tSetLimit {id} {duration[s]}\t\t");
+        System.out.println("SendEmail {receiver} {\"subject\"} {\"text\"} {reportFile<.csv>} ");
     }
 
     private void clearConsole() {
