@@ -10,6 +10,6 @@ public class Refresh extends Actions {
 
     @Override
     protected void perform(String[] input, TimerApp app) {
-        app.addTimer(input);
+
     }
 }
