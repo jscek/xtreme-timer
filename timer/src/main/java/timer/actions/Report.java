@@ -4,7 +4,7 @@ import timer.base.TimerApp;
 
 import java.time.Instant;
 import java.time.LocalDate;
-import java.time.ZoneId;
+import java.util.TimeZone;
 
 public class Report extends Actions {
 
@@ -22,9 +22,9 @@ public class Report extends Actions {
             app.createReport(null, null, "default");
         } else {
             LocalDate date = LocalDate.parse(input[1]);
-            Instant start = date.atStartOfDay(ZoneId.of("Europe/Paris")).toInstant();
+            Instant start = date.atStartOfDay(TimeZone.getDefault().toZoneId()).toInstant();
             LocalDate date2 = LocalDate.parse(input[2]);
-            Instant stop = date2.atStartOfDay(ZoneId.of("Europe/Paris")).toInstant();
+            Instant stop = date2.plusDays(1).atStartOfDay(TimeZone.getDefault().toZoneId()).toInstant();
             if (input.length == 3) {
                 app.createReport(start, stop, "default");
             } else {

@@ -145,13 +145,16 @@ public class TimerApp {
 	}
 
 	public String createReport(Instant start, Instant stop, String filename) {
+		List<TimerRecord> tempList;
 		if (start != null && stop != null) {
-			timerRecordList = timerRecordList.stream()
+			tempList = timerRecordList.stream()
 					.filter(record -> record.isBetween(start, stop))
 					.collect(Collectors.toList());
+		}else{
+			tempList = timerRecordList;
 		}
 
-		timerReport.saveReport(filename, timerRecordList);
+		timerReport.saveReport(filename, tempList);
 
 		return filename;
 	}

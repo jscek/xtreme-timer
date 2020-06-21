@@ -109,8 +109,13 @@ public class TimerRecord {
     public boolean isBetween(Instant start, Instant stop) {
         if (this.startTime == null)
             return false;
+        Instant stopTime;
+        if(this.stopTime==null)
+            stopTime=Instant.now();
+        else
+            stopTime=this.stopTime;
 
         return this.startTime.compareTo(start) > 0
-                && (this.stopTime == null || this.stopTime.compareTo(stop) < 0);
+                && stopTime.compareTo(stop) < 0;
     }
 }
