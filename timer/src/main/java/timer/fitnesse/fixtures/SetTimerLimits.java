@@ -14,8 +14,7 @@ public class SetTimerLimits {
 
 	public void setProjectLimit(String limit) {
 		timerApp = StaticTimerApp.app;
-		String[] input = {"create", "default"};
-		timerApp.addTimer(input);
+		timerApp.createTimer("default");
 		String[] input2 = {"setLimit", String.valueOf(timerApp.getTimerRecords().size()), limit};
 		timerApp.actionChain.exec(timerApp, input2);
 	}

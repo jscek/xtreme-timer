@@ -23,9 +23,9 @@ class CSVReportTest {
     private TimerApp app = new TimerApp();
 
     public CSVReportTest() throws InterruptedException {
-        app.addTimer();
-        app.addTimer();
-        app.addTimer();
+        app.createTimer("");
+        app.createTimer("");
+        app.createTimer("");
         app.startTimer((long) 1);
         app.startTimer((long) 2);
         app.startTimer((long) 3);
@@ -45,7 +45,7 @@ class CSVReportTest {
         long s = new Date().getTime();
         while (new Date().getTime() - s < 2000L) {        }
         Instant stop = Instant.now();
-        app.addTimer();
+        app.createTimer("qqq");
         app.startTimer((long) 4);
         assertThat(app.createReport(start, stop, "default"));
         assertEquals(countCsvLines(), 2);

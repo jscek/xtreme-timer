@@ -9,8 +9,7 @@ public class AddTimers {
     public void setProjectName(String projectName) {
         timerApp = StaticTimerApp.app;
 
-        String[] input = { "create", projectName };
-        timerApp.addTimer(input);
+        timerApp.createTimer(projectName);
     }
 
     public int timersCount() {

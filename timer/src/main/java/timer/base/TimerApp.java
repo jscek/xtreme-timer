@@ -15,7 +15,7 @@ import timer.report.CSVReport;
 import timer.report.TimerReport;
 import timer.utils.PropertiesReader;
 
-public class TimerApp {
+public class TimerApp implements BasicTimer {
 	private List<TimerRecord> timerRecordList;
 	public boolean shouldFinish;
 
@@ -89,25 +89,15 @@ public class TimerApp {
 				.split(" ");
 	}
 
-	public void addTimer() {
-		timerRecordList.add(new TimerRecord(getUniqueId()));
-	}
-
-	public void addTimer(String[] input) {
-		if (input.length >= 2) {
-			input[0] = "";
-			String projectName = String.join(" ", input).substring(1);
-			timerRecordList.add(new TimerRecord(getUniqueId(), projectName));
-		} else {
-			addTimer();
-		}
+	public void createTimer(String projectName) {
+		timerRecordList.add(new TimerRecord(getUniqueId(), projectName));
 	}
 
 	private Long getUniqueId() {
 		return timerRecordList.size() + 1L;
 	}
 
-	public void startTimer(Long id) {
+	public void startTimer(long id) {
 		Optional<TimerRecord> timer = getTimerById(id);
 
 		if (timer.isPresent()) {
