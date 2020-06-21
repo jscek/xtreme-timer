@@ -4,12 +4,14 @@ import java.time.Instant;
 import java.io.IOException;
 import java.util.*;
 import java.time.Duration;
+import java.util.stream.Collectors;
 
 import timer.GUI.GUI;
 import timer.actions.*;
 import timer.enums.NotifyMode;
 import timer.notification.NotificationGUI;
 import timer.notification.NotificationGUIInterface;
+import timer.report.CSVReport;
 import timer.report.TimerReport;
 import timer.utils.PropertiesReader;
 
@@ -35,7 +37,7 @@ public class TimerApp {
 		saver = new TimerSaver();
 		loader = new TimerLoader();
 		scanner = new Scanner(System.in);
-		timerReport = new TimerReport();
+		timerReport = new CSVReport();
 		shouldFinish = false;
 		notificationGUI = new NotificationGUI();
 		actionChain = getActionsChain();
@@ -143,13 +145,14 @@ public class TimerApp {
 	}
 
 	public String createReport(Instant start, Instant stop, String filename) {
-		filename += ".csv";
-
-		if (start == null && stop == null) {
-			timerReport.saveReport(filename, timerRecordList);
-		} else {
-			timerReport.saveReport(filename, start, stop, timerRecordList);
+		if (start != null && stop != null) {
+			timerRecordList = timerRecordList.stream()
+					.filter(record -> record.isBetween(start, stop))
+					.collect(Collectors.toList());
 		}
+
+		timerReport.saveReport(filename, timerRecordList);
+
 		return filename;
 	}
 

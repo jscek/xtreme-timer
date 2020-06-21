@@ -18,11 +18,11 @@ import java.util.Date;
 import java.util.List;
 
 
-class TimerReportTest {
+class CSVReportTest {
 
     private TimerApp app = new TimerApp();
 
-    public TimerReportTest() throws InterruptedException {
+    public CSVReportTest() throws InterruptedException {
         app.addTimer();
         app.addTimer();
         app.addTimer();
