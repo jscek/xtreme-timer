@@ -46,6 +46,7 @@ public class ReportSender {
 
 
         } catch (MessagingException e) {
+            System.out.println("Wrong report name provided or doesn't exist");
             e.printStackTrace();
         }
     }
