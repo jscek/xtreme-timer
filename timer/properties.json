@@ -1,7 +1,7 @@
 {
   "host": "smtp.wp.pl",
   "user": "extremetimerPE2020@wp.pl",
-  "password": "PErules12",
+  "password": "PErules123",
   "receiver": "extremetimerPE2020@wp.pl",
   "storage": "storage.txt",
   "saveOnExit": "true"
