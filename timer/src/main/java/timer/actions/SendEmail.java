@@ -1,7 +1,6 @@
 package timer.actions;
 
 import timer.base.TimerApp;
-import timer.base.TimerCommandLineApp;
 import timer.report.ReportSender;
 
 import java.util.Arrays;
@@ -23,10 +22,10 @@ public class SendEmail extends Actions {
     private void sendEmail(TimerApp app, String[] input) {
 
         if (input.length == 1) {
-            ReportSender.send("extremetimerPE2020@wp.pl", "Test3", "This is the report", app.createReport(null, null, "report.csv"));
+            ReportSender.send("extremetimerPE2020@wp.pl", "Test3", "This is the report", app.createSummaryReport(null, null, "report.csv"));
         } else if (input.length >= 4) {
             if (input.length == 4 && !ifContains(input,"\"")){
-                ReportSender.send(input[1], input[2], input[3], app.createReport(null, null, "report.csv"));
+                ReportSender.send(input[1], input[2], input[3], app.createSummaryReport(null, null, "report.csv"));
             } else {
                 String subjectAndText = "";
                 String[] newInput = new String[4];
@@ -48,7 +47,7 @@ public class SendEmail extends Actions {
                         }
                         ReportSender.send(newInput[1], newInput[2], newInput[3], result[2].replaceAll(" ", ""));
                     } else {
-                        ReportSender.send(newInput[1], newInput[2], newInput[3], app.createReport(null, null, "report.csv"));
+                        ReportSender.send(newInput[1], newInput[2], newInput[3], app.createSummaryReport(null, null, "report.csv"));
                     }
                 } catch (Exception e){
                     System.out.println("Wrong parameters provided");

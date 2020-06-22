@@ -37,7 +37,7 @@ class TimerLoaderTest {
         boolean isRunning = false;
         Duration duration = Duration.ofSeconds(7200);
 
-        TimerRecord originalRecord = new TimerRecord(id, projectName, startTime, stopTime, isRunning, duration);
+        TimerRecord originalRecord = new TimerRecord(id, projectName, startTime, startTime, stopTime, isRunning, duration);
 
         String line = id + ";" + projectName + ";" + startTime + ";" + stopTime + ";" + isRunning + ";" + duration.getSeconds();
 

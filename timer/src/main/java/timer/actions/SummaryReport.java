@@ -6,30 +6,30 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.util.TimeZone;
 
-public class Report extends Actions {
+public class SummaryReport extends Actions {
 
-    public Report() {
+    public SummaryReport() {
         this.action = this.getClass().getSimpleName().toLowerCase();
-        this.help = "Report {from:yyyy-mm-dd} {to:yyyy-mm-dd}";
+        this.help = "SummaryReport {from:yyyy-mm-dd} {to:yyyy-mm-dd} {filename}";
     }
 
     @Override
     protected void perform(String[] input, TimerApp app) {
-        createReport(app, input);
+        createSummaryReport(app, input);
     }
 
-    private void createReport(TimerApp app, String[] input) {
+    private void createSummaryReport(TimerApp app, String[] input) {
         if (input.length == 1) {
-            app.createReport(null, null, "default.csv");
+            app.createSummaryReport(null, null, "default.csv");
         } else {
             LocalDate date = LocalDate.parse(input[1]);
             Instant start = date.atStartOfDay(TimeZone.getDefault().toZoneId()).toInstant();
             LocalDate date2 = LocalDate.parse(input[2]);
             Instant stop = date2.plusDays(1).atStartOfDay(TimeZone.getDefault().toZoneId()).toInstant();
             if (input.length == 3) {
-                app.createReport(start, stop, "default.csv");
+                app.createSummaryReport(start, stop, "default.csv");
             } else {
-                app.createReport(start, stop, input[3]);
+                app.createSummaryReport(start, stop, input[3]);
             }
         }
     }
