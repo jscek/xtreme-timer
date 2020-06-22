@@ -11,6 +11,7 @@ import timer.actions.*;
 import timer.enums.NotifyMode;
 import timer.notification.NotificationGUI;
 import timer.notification.NotificationGUIInterface;
+import timer.report.DailyReportGenerator;
 import timer.report.TimerReport;
 import timer.utils.PropertiesReader;
 
@@ -24,7 +25,7 @@ public class TimerCommandLineApp extends TimerApp {
 	private final TimerLoader loader;
 	private final Scanner scanner;
 	private final TimerReport timerSummaryReport;
-	private final timer.report.DailyReport timerDailyReport;
+	private final DailyReportGenerator timerDailyReport;
 	private final NotificationGUIInterface notificationGUI;
 	public Actions actionChain;
 
@@ -38,7 +39,7 @@ public class TimerCommandLineApp extends TimerApp {
 		loader = new TimerLoader();
 		scanner = new Scanner(System.in);
 		timerSummaryReport = new timer.report.SummaryReport();
-		timerDailyReport = new timer.report.DailyReport();
+		timerDailyReport = new DailyReportGenerator();
 		shouldFinish = false;
 		notificationGUI = new NotificationGUI();
 		actionChain = getActionsChain();

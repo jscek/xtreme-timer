@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DailyReport {
+public class DailyReportGenerator {
     private final List<String> headers = new ArrayList<String>() {{
         add("project_name");
         add("date");
