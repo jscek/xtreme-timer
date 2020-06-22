@@ -6,6 +6,7 @@ public class Stop extends Actions {
 
     public Stop() {
         this.action = this.getClass().getSimpleName().toLowerCase();
+        this.help = "Stop {id}";
     }
 
     @Override

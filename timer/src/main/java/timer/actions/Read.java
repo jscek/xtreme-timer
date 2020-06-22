@@ -6,6 +6,7 @@ public class Read extends Actions {
 
     public Read() {
         this.action = this.getClass().getSimpleName().toLowerCase();
+        this.help="Read {filename.ext}";
     }
 
     @Override

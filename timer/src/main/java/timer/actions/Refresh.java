@@ -6,6 +6,7 @@ public class Refresh extends Actions {
 
     public Refresh() {
         this.action = this.getClass().getSimpleName().toLowerCase();
+        this.help = "Refresh";
     }
 
     @Override

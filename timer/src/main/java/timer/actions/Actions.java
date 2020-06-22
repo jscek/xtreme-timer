@@ -9,6 +9,7 @@ public abstract class Actions {
 
     protected String action;
     protected Actions nextAction;
+    protected String help = "";
 
     public void setNextAction(Actions nextAction) {
         this.nextAction = nextAction;
@@ -33,6 +34,13 @@ public abstract class Actions {
                 notExist.perform(input, app);
             }
         }
+    }
+
+    public String generateHelp() {
+        if (nextAction != null)
+            return help + "|" + nextAction.generateHelp();
+        else
+            return help;
     }
 
     abstract protected void perform(String[] input, TimerApp app);

@@ -7,6 +7,7 @@ public class SetLimit extends Actions {
 
     public SetLimit() {
         this.action = this.getClass().getSimpleName().toLowerCase();
+        this.help = "SetLimit {id} {duration[s]}";
     }
 
     @Override

@@ -6,6 +6,7 @@ public class Create extends Actions {
 
     public Create() {
         this.action = this.getClass().getSimpleName().toLowerCase();
+        this.help = "Create {project name}";
     }
 
     @Override

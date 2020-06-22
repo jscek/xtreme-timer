@@ -2,6 +2,7 @@ package timer;
 
 import com.opencsv.CSVReader;
 import org.junit.jupiter.api.Test;
+import timer.base.TimerApp;
 import timer.base.TimerCommandLineApp;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -20,7 +21,7 @@ import java.util.List;
 
 class CSVReportTest {
 
-    private TimerCommandLineApp app = new TimerCommandLineApp();
+    private TimerApp app = new TimerCommandLineApp();
 
     public CSVReportTest() throws InterruptedException {
         app.createTimer("");
@@ -39,17 +40,21 @@ class CSVReportTest {
 
     @Test
     void checkReportLineCount() throws IOException, URISyntaxException {
+        Instant start = Instant.now();
         assertThat(app.createReport(null, null, "default"));
         assertEquals( 4,countCsvLines());
-        Instant start = Instant.now();
         long s = new Date().getTime();
         while (new Date().getTime() - s < 2000L) {        }
-        Instant stop = Instant.now();
-        app.createTimer("qqq");
-        app.startTimer((long) 4);
-        assertThat(app.createReport(start, stop, "default"));
-        assertEquals(countCsvLines(), 2);
 
+        app.createTimer("");
+        app.startTimer((long) 4);
+        app.stopTimer((long) 4);
+        s = new Date().getTime();
+        while (new Date().getTime() - s < 2000L) {        }
+
+        Instant stop = Instant.now();
+        assertThat(app.createReport(start, stop, "default"));
+        assertEquals(2, countCsvLines());
     }
 
     private int countCsvLines() throws URISyntaxException, IOException {

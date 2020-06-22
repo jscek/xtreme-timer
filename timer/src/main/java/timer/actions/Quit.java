@@ -8,6 +8,7 @@ public class Quit extends Actions {
 
     public Quit() {
         this.action = this.getClass().getSimpleName().toLowerCase();
+        this.help="Quit";
     }
 
     @Override

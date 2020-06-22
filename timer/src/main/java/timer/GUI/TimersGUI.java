@@ -1,5 +1,6 @@
 package timer.GUI;
 
+import timer.actions.Actions;
 import timer.base.TimerRecord;
 
 import de.vandermeer.asciitable.AsciiTable;
@@ -11,7 +12,7 @@ import java.util.List;
 public class TimersGUI extends TimerGUI {
 
 	@Override
-	public void display(List<TimerRecord> timerRecordList) {
+	public void display(List<TimerRecord> timerRecordList, Actions actionsChain) {
 
 		AsciiTable timers = new AsciiTable();
 

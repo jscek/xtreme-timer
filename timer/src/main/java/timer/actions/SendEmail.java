@@ -12,6 +12,7 @@ public class SendEmail extends Actions {
 
     public SendEmail() {
         this.action = this.getClass().getSimpleName().toLowerCase();
+        this.help = "SendEmail {receiver} {\"subject\"} {\"text\"} {reportFile<.csv>}";
     }
 
     @Override
