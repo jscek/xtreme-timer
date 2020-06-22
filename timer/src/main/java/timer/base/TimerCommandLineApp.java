@@ -67,7 +67,7 @@ import timer.utils.PropertiesReader;
 	public void start() {
 		loadRecordsFromStorage();
 		while (!shouldFinish) {
-			GUI.display(timerRecordList);
+			GUI.display(timerRecordList, actionChain);
 			String[] input = getAndParseInput();
 			try {
 				actionChain.exec(this, input );
