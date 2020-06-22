@@ -1,5 +1,6 @@
 package timer.base;
 
+import java.io.Serializable;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -7,7 +8,7 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TimerRecord {
+public class TimerRecord implements Serializable {
     private final Long id;
     private final String projectName;
     private Instant startTime;
@@ -146,17 +147,48 @@ public class TimerRecord {
     }
 
 
-    public class TimerSnapshot {
+    public class TimerSnapshot implements Serializable {
         Instant start;
         Instant stop;
         Duration duration;
         LocalDate date;
+
+        public TimerSnapshot(Instant start, Instant stop, Duration duration, LocalDate date) {
+            this.start = start;
+            this.stop = stop;
+            this.duration = duration;
+            this.date = date;
+        }
 
         public TimerSnapshot(Instant start, Instant stop) {
             this.start = start;
             this.stop = stop;
             this.duration = Duration.between(start, stop);
             this.date = start.atZone(ZoneId.systemDefault()).toLocalDate();
+        }
+
+        public Instant getStart() {
+            return start;
+        }
+
+        public void setStart(Instant start) {
+            this.start = start;
+        }
+
+        public Instant getStop() {
+            return stop;
+        }
+
+        public void setStop(Instant stop) {
+            this.stop = stop;
+        }
+
+        public void setDuration(Duration duration) {
+            this.duration = duration;
+        }
+
+        public void setDate(LocalDate date) {
+            this.date = date;
         }
 
         public Duration getDuration() {

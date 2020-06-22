@@ -75,6 +75,7 @@ public class TimerCommandLineApp extends TimerApp {
 			try {
 				actionChain.exec(this, input );
 			} catch (Exception ex) {
+				System.out.println(ex.getMessage());
 				System.out.println("Invalid command: " + Arrays.toString(input));
 				String[] def = {"Refresh"};
 			}
