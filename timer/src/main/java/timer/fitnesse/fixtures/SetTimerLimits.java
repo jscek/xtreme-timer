@@ -1,21 +1,20 @@
 package timer.fitnesse.fixtures;
 
 import timer.GUI.GUI;
-import timer.base.TimerApp;
+import timer.base.TimerCommandLineApp;
 import timer.fitnesse.StaticTimerApp;
 
 public class SetTimerLimits {
 
 
-	private TimerApp timerApp;
+	private TimerCommandLineApp timerApp;
 
 	private GUI gui = new GUI();
 
 
 	public void setProjectLimit(String limit) {
 		timerApp = StaticTimerApp.app;
-		String[] input = {"create", "default"};
-		timerApp.addTimer(input);
+		timerApp.createTimer("default");
 		String[] input2 = {"setLimit", String.valueOf(timerApp.getTimerRecords().size()), limit};
 		timerApp.actionChain.exec(timerApp, input2);
 	}

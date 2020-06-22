@@ -1,7 +1,7 @@
 package timer.fitnesse;
 
-import timer.base.TimerApp;
+import timer.base.TimerCommandLineApp;
 
 public abstract class StaticTimerApp {
-    public static TimerApp app = new TimerApp();
+    public static TimerCommandLineApp app = new TimerCommandLineApp();
 }

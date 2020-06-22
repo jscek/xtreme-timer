@@ -3,6 +3,7 @@ package timer;
 import com.opencsv.CSVReader;
 import org.junit.jupiter.api.Test;
 import timer.base.TimerApp;
+import timer.base.TimerCommandLineApp;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,12 +21,12 @@ import java.util.List;
 
 class CSVReportTest {
 
-    private TimerApp app = new TimerApp();
+    private TimerApp app = new TimerCommandLineApp();
 
     public CSVReportTest() throws InterruptedException {
-        app.addTimer();
-        app.addTimer();
-        app.addTimer();
+        app.createTimer("");
+        app.createTimer("");
+        app.createTimer("");
         app.startTimer((long) 1);
         app.startTimer((long) 2);
         app.startTimer((long) 3);
@@ -45,7 +46,7 @@ class CSVReportTest {
         long s = new Date().getTime();
         while (new Date().getTime() - s < 2000L) {        }
 
-        app.addTimer();
+        app.createTimer("");
         app.startTimer((long) 4);
         app.stopTimer((long) 4);
         s = new Date().getTime();
