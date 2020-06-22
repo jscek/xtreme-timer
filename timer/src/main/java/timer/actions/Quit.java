@@ -1,6 +1,7 @@
 package timer.actions;
 
 import timer.base.TimerApp;
+import timer.base.TimerCommandLineApp;
 import timer.utils.PropertiesReader;
 
 public class Quit extends Actions {
@@ -11,7 +12,7 @@ public class Quit extends Actions {
 
     @Override
     protected void perform(String[] input, TimerApp app) {
-        app.shouldFinish = true;
+        app.finish();
         saveToStorage(app);
     }
 

@@ -1,10 +1,10 @@
 package timer.fitnesse.fixtures;
 
-import timer.base.TimerApp;
+import timer.base.TimerCommandLineApp;
 import timer.fitnesse.StaticTimerApp;
 
 public class AddTimers {
-    private TimerApp timerApp;
+    private TimerCommandLineApp timerApp;
 
     public void setProjectName(String projectName) {
         timerApp = StaticTimerApp.app;

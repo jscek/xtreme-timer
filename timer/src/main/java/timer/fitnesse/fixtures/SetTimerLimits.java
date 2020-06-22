@@ -1,13 +1,13 @@
 package timer.fitnesse.fixtures;
 
 import timer.GUI.GUI;
-import timer.base.TimerApp;
+import timer.base.TimerCommandLineApp;
 import timer.fitnesse.StaticTimerApp;
 
 public class SetTimerLimits {
 
 
-	private TimerApp timerApp;
+	private TimerCommandLineApp timerApp;
 
 	private GUI gui = new GUI();
 
