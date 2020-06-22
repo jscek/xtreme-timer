@@ -3,6 +3,7 @@ package timer.base;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -155,7 +156,7 @@ public class TimerRecord {
             this.start = start;
             this.stop = stop;
             this.duration = Duration.between(start, stop);
-            this.date = LocalDate.from(start);
+            this.date = start.atZone(ZoneId.systemDefault()).toLocalDate();
         }
 
         public Duration getDuration() {
