@@ -11,7 +11,6 @@ import timer.actions.*;
 import timer.enums.NotifyMode;
 import timer.notification.NotificationGUI;
 import timer.notification.NotificationGUIInterface;
-import timer.report.SummaryReport;
 import timer.report.TimerReport;
 import timer.utils.PropertiesReader;
 
@@ -24,7 +23,8 @@ public class TimerCommandLineApp extends TimerApp {
 	private final TimerSaver saver;
 	private final TimerLoader loader;
 	private final Scanner scanner;
-	private final TimerReport timerReport;
+	private final TimerReport timerSummaryReport;
+	private final timer.report.DailyReport timerDailyReport;
 	private final NotificationGUIInterface notificationGUI;
 	public Actions actionChain;
 
@@ -37,7 +37,8 @@ public class TimerCommandLineApp extends TimerApp {
 		saver = new TimerSaver();
 		loader = new TimerLoader();
 		scanner = new Scanner(System.in);
-		timerReport = new SummaryReport();
+		timerSummaryReport = new timer.report.SummaryReport();
+		timerDailyReport = new timer.report.DailyReport();
 		shouldFinish = false;
 		notificationGUI = new NotificationGUI();
 		actionChain = getActionsChain();
@@ -55,7 +56,8 @@ public class TimerCommandLineApp extends TimerApp {
 		actionsList.add(new Read());
 		actionsList.add(new Quit());
 		actionsList.add(new Refresh());
-		actionsList.add(new Report());
+		actionsList.add(new SummaryReport());
+		actionsList.add(new DailyReport());
 		actionsList.add(new Resume());
 		actionsList.add(new Save());
 		actionsList.add(new SendEmail());
@@ -139,7 +141,7 @@ public class TimerCommandLineApp extends TimerApp {
 		timer.ifPresent(record -> record.setLimit(limit));
 	}
 
-	public String createReport(Instant start, Instant stop, String filename) {
+	public String createSummaryReport(Instant start, Instant stop, String filename) {
 		List<TimerRecord> tempList;
 		if (start != null && stop != null) {
 			tempList = timerRecordList.stream()
@@ -149,8 +151,14 @@ public class TimerCommandLineApp extends TimerApp {
 			tempList = timerRecordList;
 		}
 
-		timerReport.saveReport(filename, tempList);
+		timerSummaryReport.saveReport(filename, tempList);
 
+		return filename;
+	}
+
+	public String createDailyReport(long id, String filename) {
+		Optional<TimerRecord> record = getTimerById(id);
+		record.ifPresent(timerRecord -> timerDailyReport.saveReport(filename, timerRecord));
 		return filename;
 	}
 
