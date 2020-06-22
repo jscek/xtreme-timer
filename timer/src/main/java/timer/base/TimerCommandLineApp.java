@@ -15,8 +15,8 @@ import timer.report.CSVReport;
 import timer.report.TimerReport;
 import timer.utils.PropertiesReader;
 
-		public class TimerCommandLineApp extends TimerApp {
-			private List<TimerRecord> timerRecordList;
+public class TimerCommandLineApp extends TimerApp {
+	private List<TimerRecord> timerRecordList;
 	public boolean shouldFinish;
 
 	private final Map<TimerRecord, TimerTask> recordNotifications;
