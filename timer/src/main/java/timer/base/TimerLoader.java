@@ -35,16 +35,17 @@ public class TimerLoader {
 
         Long id = Long.parseLong(fields[0]);
         String projectName = fields[1];
-        Instant startTime = parseInstant(fields[2]);
-        Instant stopTime = parseInstant(fields[3]);
-        boolean isRunning = Boolean.parseBoolean(fields[4]);
+        Instant globalStartTime = parseInstant(fields[2]);
+        Instant startTime = parseInstant(fields[3]);
+        Instant stopTime = parseInstant(fields[4]);
+        boolean isRunning = Boolean.parseBoolean(fields[5]);
         Duration duration;
         if (!isRunning) {
-            duration = Duration.ofSeconds(Long.parseLong(fields[5]));
+            duration = Duration.ofSeconds(Long.parseLong(fields[6]));
         } else {
             duration = Duration.ZERO;
         }
-        return new TimerRecord(id, projectName, startTime, stopTime, isRunning, duration);
+        return new TimerRecord(id, projectName, globalStartTime, startTime, stopTime, isRunning, duration);
     }
 
     private Instant parseInstant(String value) {

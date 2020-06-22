@@ -7,6 +7,7 @@ public class TimerRecord {
     private final Long id;
     private final String projectName;
     private Instant startTime;
+    private Instant globalStartTime;
     private Instant stopTime;
     private boolean isRunning = false;
     private Duration duration;
@@ -21,10 +22,11 @@ public class TimerRecord {
         this.projectName = projectName;
     }
 
-    public TimerRecord(Long id, String projectName, Instant startTime, Instant stopTime, boolean isRunning, Duration duration) {
+    public TimerRecord(Long id, String projectName, Instant globalStartTime, Instant startTime, Instant stopTime, boolean isRunning, Duration duration) {
         this.id = id;
         this.projectName = projectName;
         this.startTime = startTime;
+        this.globalStartTime = globalStartTime;
         this.stopTime = stopTime;
         this.isRunning = isRunning;
         this.duration = duration;
@@ -33,6 +35,8 @@ public class TimerRecord {
     public Instant getStartTime() {
         return startTime;
     }
+
+    public Instant getGlobalStartTime() { return globalStartTime; }
 
     public Long getId() {
         return id;
@@ -88,6 +92,7 @@ public class TimerRecord {
 
     public void startTimer() {
         startTime = Instant.now();
+        globalStartTime = startTime;
         this.isRunning = true;
     }
 

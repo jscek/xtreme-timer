@@ -24,7 +24,7 @@ public class TimerSaver {
     }
 
     private String getRecordAsString(TimerRecord record) {
-        return record.getId() + ";" + record.getProjectName() + ";" + record.getStartTime() + ";" +
+        return record.getId() + ";" + record.getProjectName() + ";" + record.getGlobalStartTime() + ";" + record.getStartTime() + ";" +
                 record.getStopTime() + ";" + record.isRunning() + ";" + record.getDuration().getSeconds() + "\n";
     }
 }
