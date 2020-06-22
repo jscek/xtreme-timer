@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-public class CSVReport implements TimerReport {
+public class SummaryReport implements TimerReport {
     private final ArrayList<String> headers = new ArrayList<>(Arrays.asList(
             "project_name", "time", "started", "update"
     ));
@@ -21,7 +21,7 @@ public class CSVReport implements TimerReport {
     @Override
     public void saveReport(String filename, List<TimerRecord> timerRecords) {
         if (!filename.endsWith(".csv")) {
-            filename += ".csv";
+            filename += "_summary.csv";
         }
 
         File file = new File(filename);

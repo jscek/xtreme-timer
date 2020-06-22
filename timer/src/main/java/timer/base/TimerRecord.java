@@ -2,6 +2,9 @@ package timer.base;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TimerRecord {
     private final Long id;
@@ -12,6 +15,10 @@ public class TimerRecord {
     private boolean isRunning = false;
     private Duration duration;
     private Duration limit;
+
+
+
+    List<TimerSnapshot> snapshots = new ArrayList<>();
 
     public TimerRecord(Long id) {
         this(id, "--");
@@ -42,10 +49,21 @@ public class TimerRecord {
         return id;
     }
 
+    public void startTimer() {
+        if (!isRunning) {
+            startTime = Instant.now();
+            globalStartTime = startTime;
+            this.isRunning = true;
+        }
+    }
+
     public void stopTimer() {
-        duration = getDuration();
-        stopTime = Instant.now();
-        isRunning = false;
+        if (isRunning) {
+            duration = getDuration();
+            stopTime = Instant.now();
+            snapshots.add(new TimerSnapshot(startTime, stopTime));
+            isRunning = false;
+        }
     }
 
     public Instant getStopTime() {
@@ -90,12 +108,6 @@ public class TimerRecord {
         isRunning = true;
     }
 
-    public void startTimer() {
-        startTime = Instant.now();
-        globalStartTime = startTime;
-        this.isRunning = true;
-    }
-
     public String getProjectName() {
         return projectName;
     }
@@ -122,5 +134,36 @@ public class TimerRecord {
 
         return this.startTime.compareTo(start) >= 0
                 && stopTime.compareTo(stop) <= 0;
+    }
+
+    public List<TimerSnapshot> getSnapshots() {
+        return snapshots;
+    }
+
+    public void setSnapshots(List<TimerSnapshot> snapshots) {
+        this.snapshots = snapshots;
+    }
+
+
+    public class TimerSnapshot {
+        Instant start;
+        Instant stop;
+        Duration duration;
+        LocalDate date;
+
+        public TimerSnapshot(Instant start, Instant stop) {
+            this.start = start;
+            this.stop = stop;
+            this.duration = Duration.between(start, stop);
+            this.date = LocalDate.from(start);
+        }
+
+        public Duration getDuration() {
+            return duration;
+        }
+
+        public LocalDate getDate() {
+            return date;
+        }
     }
 }

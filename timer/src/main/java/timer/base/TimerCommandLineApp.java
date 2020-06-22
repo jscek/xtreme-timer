@@ -11,7 +11,7 @@ import timer.actions.*;
 import timer.enums.NotifyMode;
 import timer.notification.NotificationGUI;
 import timer.notification.NotificationGUIInterface;
-import timer.report.CSVReport;
+import timer.report.SummaryReport;
 import timer.report.TimerReport;
 import timer.utils.PropertiesReader;
 
@@ -37,7 +37,7 @@ public class TimerCommandLineApp extends TimerApp {
 		saver = new TimerSaver();
 		loader = new TimerLoader();
 		scanner = new Scanner(System.in);
-		timerReport = new CSVReport();
+		timerReport = new SummaryReport();
 		shouldFinish = false;
 		notificationGUI = new NotificationGUI();
 		actionChain = getActionsChain();
