@@ -30,22 +30,22 @@ public class DailyReportGenerator {
             FileWriter outfile = new FileWriter(file);
             CSVWriter writer = new CSVWriter(outfile);
 
-            Map<LocalDate, Duration> dailyWork = new HashMap<>();
+            Map<String, Duration> dailyWork = new HashMap<>();
             for (TimerRecord.TimerSnapshot snapshot : timer.getSnapshots()) {
-                if (dailyWork.containsKey(snapshot.getDate())) {
-                    dailyWork.put(snapshot.getDate(), snapshot.getDuration());
+                if (!dailyWork.containsKey(snapshot.getDate().toString())) {
+                    dailyWork.put(snapshot.getDate().toString(), snapshot.getDuration());
                 } else {
-                    Duration currentDuration = dailyWork.get(snapshot.getDate());
-                    dailyWork.put(snapshot.getDate(), currentDuration.plus(snapshot.getDuration()));
+                    Duration currentDuration = dailyWork.get(snapshot.getDate().toString());
+                    dailyWork.put(snapshot.getDate().toString(), currentDuration.plus(snapshot.getDuration()));
                 }
             }
 
             writer.writeNext(headers.toArray(new String[0]));
 
-            for (Map.Entry<LocalDate, Duration> entry : dailyWork.entrySet()) {
+            for (Map.Entry<String, Duration> entry : dailyWork.entrySet()) {
                 String[] row = new String[3];
                 row[0] = timer.getProjectName();
-                row[1] = entry.getKey().toString();
+                row[1] = entry.getKey();
                 row[2] = displayDuration(entry.getValue().getSeconds());
                 writer.writeNext(row);
             }
