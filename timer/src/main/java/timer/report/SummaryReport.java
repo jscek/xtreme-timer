@@ -41,7 +41,7 @@ public class SummaryReport implements TimerReport {
     }
 
 
-    private ArrayList<ArrayList<String>> createReportContent(List<TimerRecord> timerRecords) {
+    public ArrayList<ArrayList<String>> createReportContent(List<TimerRecord> timerRecords) {
         ArrayList<ArrayList<String>> rows = new ArrayList<>();
         rows.add(this.headers);
 

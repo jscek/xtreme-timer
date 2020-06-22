@@ -60,10 +60,17 @@
 
 
 !4 Case: Test komend aplikacji dla istniejącego stopera (Start, Stop, Resume, Save)
-!|AppCommands             |
-|timerId|command  |filename  |isRunning?|isSaved?|
-|2      |Start    |saveTest_1|true      |false   |
-|2      |Stop     |saveTest_1|false     |false   |
-|2      |Save     |saveTest_1|false     |true    |
-|2      |Resume   |saveTest_1|true      |true    |
-|2      |Stop     |saveTest_1|false     |true    |
+!| AppCommands |
+| timerId | command | filename | isRunning? | isSaved? |
+| 2 | Start | saveTest_1 | true | false |
+| 2 | Stop | saveTest_1 | false | false |
+| 2 | Save | saveTest_1 | false | true |
+| 2 | Resume | saveTest_1 | true | true |
+| 2 | Stop | saveTest_1 | false | true |
+
+!4 Case: Zawartość raportu
+!| CreateReport |
+| name | start | waitSec| stop  | reportContent? |
+| Test | true  | 1 | false| |
+| Test2 | true  | 0 |true | |
+| Test3 | true  | 2 | true | |
