@@ -13,7 +13,7 @@ import java.util.List;
 
 public class CSVReport implements TimerReport {
     private final ArrayList<String> headers = new ArrayList<>(Arrays.asList(
-            "project_name", "time"
+            "project_name", "time", "update"
     ));
 
     @Override
@@ -48,6 +48,7 @@ public class CSVReport implements TimerReport {
 
             row.add(record.getProjectName());
             row.add(displayDuration(record.getDuration().getSeconds()));
+            row.add(record.getStopTime().toString());
 
             rows.add(row);
         }

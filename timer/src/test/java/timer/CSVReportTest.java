@@ -72,6 +72,4 @@ class CSVReportTest {
 
         return count;
     }
-
-
 }

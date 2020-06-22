@@ -33,12 +33,15 @@ public class GUI extends TimerGUI {
     }
 
     private void showHelps(String help){
-        System.out.println("\n//////////////////\t\t\tAvailable Commands\t\t\t//////////////////");
+        System.out.println("\n/////////////////////\t\t\tAvailable Commands\t\t\t/////////////////////");
         String[] helps = help.split("\\|");
         StringBuilder line= new StringBuilder();
         for (int i = 0; i < helps.length; i++){
             line.append(helps[i]).append("\t\t");
-            if (i % 4 == 3){
+            if (i == 4){
+                System.out.println(line.toString());
+                line = new StringBuilder();
+            } else if (i % 3 == 1 && i > 4) {
                 System.out.println(line.toString());
                 line = new StringBuilder();
             }

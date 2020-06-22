@@ -52,14 +52,14 @@ public class TimerApp {
 		actionsList.add(create);
 		actionsList.add(new Start());
 		actionsList.add(new Stop());
-		actionsList.add(new Read());
-		actionsList.add(new Quit());
-		actionsList.add(new Refresh());
-		actionsList.add(new Report());
 		actionsList.add(new Resume());
-		actionsList.add(new Save());
-		actionsList.add(new SendEmail());
 		actionsList.add(new SetLimit());
+		actionsList.add(new Save());
+		actionsList.add(new Read());
+		actionsList.add(new Report());
+		actionsList.add(new SendEmail());
+		actionsList.add(new Refresh());
+		actionsList.add(new Quit());
 
 		return  create.chainActions(actionsList);
 	}

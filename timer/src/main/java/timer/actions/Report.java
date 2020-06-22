@@ -10,7 +10,7 @@ public class Report extends Actions {
 
     public Report() {
         this.action = this.getClass().getSimpleName().toLowerCase();
-        this.help = "Report {from:yyyy-mm-dd} {to:yyyy-mm-dd}";
+        this.help = "Report {from:yyyy-mm-dd} {to:yyyy-mm-dd} {filename}";
     }
 
     @Override
