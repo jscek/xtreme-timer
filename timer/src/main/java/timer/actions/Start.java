@@ -11,6 +11,11 @@ public class Start extends Actions {
 
     @Override
     protected void perform(String[] input, TimerApp app) {
-        app.startTimer(Long.valueOf(input[1]));
+        try {
+            long id = Long.parseLong(input[1]);
+            app.startTimer(id);
+        } catch (Exception e) {
+            //Do nothing
+        }
     }
 }

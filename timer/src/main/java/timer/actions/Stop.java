@@ -11,6 +11,11 @@ public class Stop extends Actions {
 
     @Override
     protected void perform(String[] input, TimerApp app) {
-        app.stopTimer(Long.parseLong(input[1]));
+        try {
+            long id = Long.parseLong(input[1]);
+            app.stopTimer(id);
+        } catch (Exception e) {
+            //Do nothing
+        }
     }
 }
