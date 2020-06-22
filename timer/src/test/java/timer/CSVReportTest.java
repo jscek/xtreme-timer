@@ -42,7 +42,7 @@ class CSVReportTest {
     void checkReportLineCount() throws IOException, URISyntaxException {
         Instant start = Instant.now();
         assertThat(app.createSummaryReport(null, null, "default"));
-        assertEquals( 4,countCsvLines());
+        assertEquals( 2,countCsvLines());
         long s = new Date().getTime();
         while (new Date().getTime() - s < 2000L) {        }
 

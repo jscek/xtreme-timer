@@ -2,23 +2,35 @@ package timer.base;
 
 import timer.base.TimerRecord;
 
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class TimerLoader {
-    public List<TimerRecord> loadFromFile(String filename) {
-        if (filename != null && !filename.isEmpty()) {
-            return getTimerRecordsFromFile(filename);
+    public List<TimerRecord> loadFromFile(String filename)  {
+        FileInputStream fis = null;
+        List<TimerRecord> list = new ArrayList<>();
+        try {
+            if (!filename.endsWith(".txt")) {
+                filename += ".txt";
+            }
+            fis = new FileInputStream(filename);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            list = (ArrayList<TimerRecord>) ois.readObject();
+
+            ois.close();
+            fis.close();
+        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
+        } catch (ClassNotFoundException e) {
         }
-        return new ArrayList<>();
+        return list;
     }
 
     private List<TimerRecord> getTimerRecordsFromFile(String filename) {
@@ -44,6 +56,11 @@ public class TimerLoader {
             duration = Duration.ofSeconds(Long.parseLong(fields[6]));
         } else {
             duration = Duration.ZERO;
+        }
+        try {
+            List<TimerRecord.TimerSnapshot> asd = (ArrayList<TimerRecord.TimerSnapshot>) new ObjectInputStream(new ByteArrayInputStream(fields[7].getBytes())).readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
         }
         return new TimerRecord(id, projectName, globalStartTime, startTime, stopTime, isRunning, duration);
     }
